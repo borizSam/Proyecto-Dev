@@ -1,0 +1,37 @@
+---
+title: "GitHub"
+---
+::: callout
+MODIFICAR LA DOCUMENTACIÓN
+:::
+
+# Comandos Github
+
+git init --> iniciamos el repo.
+
+git status --> revisamos que ficheros tenemos traqueados.
+
+git add . --> añadimos los archivos que tengamos
+
+git commit -m "Guardado" --> Es como hacer un snapshot del fichero 
+
+git push subimos 
+
+********
+git banch -> para ver nuestras ramas y en que rama estamos trabajando 
+
+git switch master --> para cambiar de rama en casi de que estemos en otra rama 
+
+git swicht -c "RAMA2" --> para crear una rama
+
+git log --> para revisar los commits realizados
+
+git checkout --> se copia el id del log para volver al comit que teníamos guardado 
+
+
+# LOG DE GITHUB TOKEN 
+
+
+git remote add origin https://.... --> es para conectar mi repositorio
+
+git push origin master --> para subir nuestra rama master y aparecerá todos los comits 

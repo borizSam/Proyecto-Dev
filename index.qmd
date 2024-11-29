@@ -1,0 +1,48 @@
+---
+title: "Quarto"
+---
+::: callout
+MODIFICAR LA DOCUMENTACIÓN
+:::
+
+# Quarto: Es un motor de Publicación de Código Abierto
+
+**Quarto** es una herramienta de publicación de código abierto diseñada para crear documentos dinámicos y reproducibles utilizando lenguajes de programación como **R**, **Python**, **Julia** y **Observable**. 
+
+Con un enfoque en la versatilidad, Quarto admite múltiples formatos de salida y proporciona herramientas avanzadas para **automatización**,**control de versiones** y **personalización de contenido**.
+
+## Principales Conceptos Relacionados
+
+### **Engine (Motor)** 
+
+En Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos. 
+
+Gracias a su compatibilidad con lenguajes como R, Python y Julia, permite integrar código que genera resultados automáticamente en documentos dinámicos. 
+
+### **Markdown** 
+Quarto utiliza **Markdown extendido** para estructurar y formatear contenido. Mediante bloques y etiquetas específicas, los usuarios pueden combinar texto enriquecido, código y elementos interactivos en un solo archivo. Este archivo puede compilarse en formatos como PDF, HTML o presentaciones, adaptándose a diferentes necesidades. 
+
+### **Publish (Publicación)** 
+
+La publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como **GitHub Pages**, servidores de **Shiny**, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.
+
+### **Git** 
+ 
+ Quarto se integra perfectamente con **Git**, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones. 
+
+## Automatización en Quarto 
+
+La **automatización** es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como: 
+
+    - Regeneración de informes. 
+    - Actualización automática de gráficos. 
+    - Despliegue de contenido en línea. 
+--- Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente.
+
+# Manual de instalacion de Quarto
+
+Proximamente ... 
+
+# Manual de automatización con gitpages y crear workflows
+
+-.-..-.-..-

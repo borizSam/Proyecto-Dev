@@ -1,0 +1,28 @@
+---
+title: "Ficha de Contacto"
+---
+
+## Información Personal
+
+**Nombre:** Boris Ivan
+
+**Correo Electrónico:** [dadapunk456@gmail.com](mailto:dadapunk456@gmail.com) ✉️  
+
+**Dirección:** Barcelona,Barcelona 📍
+
+---
+
+## Redes Sociales
+
+Conéctame a través de mis redes sociales:
+
+- [LinkedIn](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile) 👔 
+- [GitHub](https://github.com/borizSam) 🐦 
+  
+---
+
+## Enviar un Mensaje
+
+Si prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:  
+**Email:** [dadapunk456@gmail.com](mailto:dadapunk456@gmail.com)  
+¡Saludos!

@@ -1,0 +1,51 @@
+project:
+  type: website
+
+title: "DevOps"
+author: "Boris Ivan Huarachi Perez" 
+theme: [journals] 
+
+website:
+  title: "DevOps"
+  navbar:
+    left:
+
+      - text: Quarto
+        menu:
+          - text: Introducción
+            href: index.qmd
+          - text: About
+            href: about.qmd
+
+      - text: Kubernetes
+        menu:
+          - text: Introducción
+            href: indexkubi.qmd
+          - text: test
+            href: kubi.qmd
+      
+      - text: Github
+        menu:
+          - text: Comandos Basicos
+            href: indexgit.qmd
+          - text: test
+            href: git.qmd          
+    
+    right:
+      - text: Contact
+        href: contact.qmd
+
+nav:
+  - Home: index.qmd
+  - About: about.qmd
+  - Kubernetes: indexkubi.qmd
+  - Github: indexgit.qmd
+  - Contact: contact.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    mermaid: {}
+ 
