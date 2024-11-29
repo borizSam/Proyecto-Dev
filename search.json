@@ -25,7 +25,7 @@
     "href": "about.html",
     "title": "TEST MERMAID",
     "section": "",
-    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdowngmhxmdium classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownjubuammju classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
   },
   {
     "objectID": "indexgit.html",
