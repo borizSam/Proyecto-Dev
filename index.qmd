@@ -45,4 +45,9 @@ Proximamente ...
 
 # Manual de automatización con gitpages y crear workflows
 
-Test auto
+Test auto2
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    .github/publish.yml -> .github/workflows/publish.yml
+        modified:   index.qmd
