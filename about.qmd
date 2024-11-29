@@ -33,3 +33,5 @@ classDiagram
         +bool esSalvaje
         +correr()
     }
+
+    
