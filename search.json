@@ -25,7 +25,7 @@
     "href": "about.html",
     "title": "TEST MERMAID",
     "section": "",
-    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownjubuammju classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownhwukaudlg classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
   },
   {
     "objectID": "indexgit.html",
@@ -39,14 +39,14 @@
     "href": "contact.html",
     "title": "Ficha de Contacto",
     "section": "",
-    "text": "Nombre: Boris Ivan\nCorreo Electrónico: dadapunk456@gmail.com ✉️\nDirección: Barcelona,Barcelona 📍"
+    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
   },
   {
     "objectID": "contact.html#información-personal",
     "href": "contact.html#información-personal",
     "title": "Ficha de Contacto",
     "section": "",
-    "text": "Nombre: Boris Ivan\nCorreo Electrónico: dadapunk456@gmail.com ✉️\nDirección: Barcelona,Barcelona 📍"
+    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
   },
   {
     "objectID": "contact.html#redes-sociales",
@@ -60,6 +60,6 @@
     "href": "contact.html#enviar-un-mensaje",
     "title": "Ficha de Contacto",
     "section": "Enviar un Mensaje",
-    "text": "Enviar un Mensaje\nSi prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:\nEmail: dadapunk456@gmail.com\n¡Saludos!"
+    "text": "Enviar un Mensaje\nSi prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:\nEmail: (dadapunk456@gmail.com) ✉️\n¡Saludos!"
   }
 ]
