@@ -47,7 +47,5 @@ Proximamente ...
 
 Test auto2
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        renamed:    .github/publish.yml -> .github/workflows/publish.yml
-        modified:   index.qmd
+renamed:    .github/publish.yml -> .github/workflows/publish.yml
+modified:   index.qmd
