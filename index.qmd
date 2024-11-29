@@ -44,5 +44,3 @@ La **automatización** es uno de los pilares de Quarto. Permite ejecutar tareas 
 Proximamente ... 
 
 # Manual de automatización con gitpages y crear workflows
-
--.-..-.-..-
