@@ -1,10 +1,38 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "MODIFICAR LA DOCUMENTACIÓN"
+  },
+  {
+    "objectID": "index.html#principales-conceptos-relacionados",
+    "href": "index.html#principales-conceptos-relacionados",
+    "title": "Quarto",
+    "section": "Principales Conceptos Relacionados",
+    "text": "Principales Conceptos Relacionados\n\nEngine (Motor)\nEn Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos.\nGracias a su compatibilidad con lenguajes como R, Python y Julia, permite integrar código que genera resultados automáticamente en documentos dinámicos.\n\n\nMarkdown\nQuarto utiliza Markdown extendido para estructurar y formatear contenido. Mediante bloques y etiquetas específicas, los usuarios pueden combinar texto enriquecido, código y elementos interactivos en un solo archivo. Este archivo puede compilarse en formatos como PDF, HTML o presentaciones, adaptándose a diferentes necesidades.\n\n\nPublish (Publicación)\nLa publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como GitHub Pages, servidores de Shiny, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.\n\n\nGit\nQuarto se integra perfectamente con Git, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones."
+  },
+  {
+    "objectID": "index.html#automatización-en-quarto",
+    "href": "index.html#automatización-en-quarto",
+    "title": "Quarto",
+    "section": "Automatización en Quarto",
+    "text": "Automatización en Quarto\nLa automatización es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:\n- Regeneración de informes. \n- Actualización automática de gráficos. \n- Despliegue de contenido en línea. \n— Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "TEST MERMAID",
     "section": "",
-    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownyanuzmbkl classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdowngmhxmdium classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+  },
+  {
+    "objectID": "indexgit.html",
+    "href": "indexgit.html",
+    "title": "GitHub",
+    "section": "",
+    "text": "MODIFICAR LA DOCUMENTACIÓN\n\n\n\n\nComandos Github\ngit init –&gt; iniciamos el repo.\ngit status –&gt; revisamos que ficheros tenemos traqueados.\ngit add . –&gt; añadimos los archivos que tengamos\ngit commit -m “Guardado” –&gt; Es como hacer un snapshot del fichero\ngit push subimos\n\ngit banch -&gt; para ver nuestras ramas y en que rama estamos trabajando\ngit switch master –&gt; para cambiar de rama en casi de que estemos en otra rama\ngit swicht -c “RAMA2” –&gt; para crear una rama\ngit log –&gt; para revisar los commits realizados\ngit checkout –&gt; se copia el id del log para volver al comit que teníamos guardado\n\n\nLOG DE GITHUB TOKEN\ngit remote add origin https://…. –&gt; es para conectar mi repositorio\ngit push origin master –&gt; para subir nuestra rama master y aparecerá todos los comits"
   },
   {
     "objectID": "contact.html",
@@ -33,33 +61,5 @@
     "title": "Ficha de Contacto",
     "section": "Enviar un Mensaje",
     "text": "Enviar un Mensaje\nSi prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:\nEmail: dadapunk456@gmail.com\n¡Saludos!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "MODIFICAR LA DOCUMENTACIÓN"
-  },
-  {
-    "objectID": "index.html#principales-conceptos-relacionados",
-    "href": "index.html#principales-conceptos-relacionados",
-    "title": "Quarto",
-    "section": "Principales Conceptos Relacionados",
-    "text": "Principales Conceptos Relacionados\n\nEngine (Motor)\nEn Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos.\nGracias a su compatibilidad con lenguajes como R, Python y Julia, permite integrar código que genera resultados automáticamente en documentos dinámicos.\n\n\nMarkdown\nQuarto utiliza Markdown extendido para estructurar y formatear contenido. Mediante bloques y etiquetas específicas, los usuarios pueden combinar texto enriquecido, código y elementos interactivos en un solo archivo. Este archivo puede compilarse en formatos como PDF, HTML o presentaciones, adaptándose a diferentes necesidades.\n\n\nPublish (Publicación)\nLa publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como GitHub Pages, servidores de Shiny, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.\n\n\nGit\nQuarto se integra perfectamente con Git, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones."
-  },
-  {
-    "objectID": "index.html#automatización-en-quarto",
-    "href": "index.html#automatización-en-quarto",
-    "title": "Quarto",
-    "section": "Automatización en Quarto",
-    "text": "Automatización en Quarto\nLa automatización es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:\n- Regeneración de informes. \n- Actualización automática de gráficos. \n- Despliegue de contenido en línea. \n— Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente."
-  },
-  {
-    "objectID": "indexgit.html",
-    "href": "indexgit.html",
-    "title": "GitHub",
-    "section": "",
-    "text": "MODIFICAR LA DOCUMENTACIÓN\n\n\n\n\nComandos Github\ngit init –&gt; iniciamos el repo.\ngit status –&gt; revisamos que ficheros tenemos traqueados.\ngit add . –&gt; añadimos los archivos que tengamos\ngit commit -m “Guardado” –&gt; Es como hacer un snapshot del fichero\ngit push subimos\n\ngit banch -&gt; para ver nuestras ramas y en que rama estamos trabajando\ngit switch master –&gt; para cambiar de rama en casi de que estemos en otra rama\ngit swicht -c “RAMA2” –&gt; para crear una rama\ngit log –&gt; para revisar los commits realizados\ngit checkout –&gt; se copia el id del log para volver al comit que teníamos guardado\n\n\nLOG DE GITHUB TOKEN\ngit remote add origin https://…. –&gt; es para conectar mi repositorio\ngit push origin master –&gt; para subir nuestra rama master y aparecerá todos los comits"
   }
 ]
