@@ -9,7 +9,6 @@ website:
   title: "DevOps"
   navbar:
     left:
-
       - text: Quarto
         menu:
           - text: Introducción

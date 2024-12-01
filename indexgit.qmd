@@ -35,3 +35,12 @@ git checkout --> se copia el id del log para volver al comit que teníamos guard
 git remote add origin https://.... --> es para conectar mi repositorio
 
 git push origin master --> para subir nuestra rama master y aparecerá todos los comits 
+
+# Pruebas-Test
+
+boris@Dev-Final:~/RoadMap-Dev$ git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+boris@Dev-Final:~/RoadMap-Dev$ git checkout -b gh-pages
+Switched to a new branch 'gh-pages'
+boris@Dev-Final:~/RoadMap-Dev$ git push -u origin gh-pages
