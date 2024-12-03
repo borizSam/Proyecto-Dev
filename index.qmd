@@ -37,7 +37,8 @@ La **automatización** es uno de los pilares de Quarto. Permite ejecutar tareas 
     - Regeneración de informes. 
     - Actualización automática de gráficos. 
     - Despliegue de contenido en línea. 
---- Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente.
+
+Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente.
 
 # Manual de instalacion de Quarto
 
