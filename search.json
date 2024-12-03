@@ -18,14 +18,14 @@
     "href": "index.html#automatización-en-quarto",
     "title": "Quarto",
     "section": "Automatización en Quarto",
-    "text": "Automatización en Quarto\nLa automatización es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:\n- Regeneración de informes. \n- Actualización automática de gráficos. \n- Despliegue de contenido en línea. \n— Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente."
+    "text": "Automatización en Quarto\nLa automatización es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:\n- Regeneración de informes. \n- Actualización automática de gráficos. \n- Despliegue de contenido en línea. \nQuarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "TEST MERMAID",
     "section": "",
-    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownfxfuckdnt classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownxligtmzcf classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
   },
   {
     "objectID": "indexgit.html",
