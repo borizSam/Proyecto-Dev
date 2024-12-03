@@ -45,9 +45,6 @@ Quarto es una solución poderosa que busca combinar análisis, visualización y 
 Proximamente ... 
 
 # Manual de automatización con gitpages y crear workflows
-
-Test auto2
-
 renamed:    .github/publish.yml -> .github/workflows/publish.yml
 modified:   index.qmd
-TEST -GH2
+TEST - BASH
