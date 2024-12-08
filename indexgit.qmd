@@ -5,43 +5,63 @@ title: "GitHub"
 MODIFICAR LA DOCUMENTACIÓN
 :::
 
-# Comandos Github
+GitHub es un espacio en línea donde puedo almacenar mis proyectos (repositorios), compartirlos con otras personas y colaborar. Utiliza Git para gestionar los cambios en el código, lo que me permite trabajar junto con otros desarrolladores sin interferir en su trabajo.
 
-git init --> iniciamos el repo.
+## ¿Qué es GitHub?
 
-git status --> revisamos que ficheros tenemos traqueados.
+GitHub es una plataforma en línea que me permite guardar mis proyectos, trabajar en equipo y hacer un seguimiento de todos los cambios que se hacen en el código. Está basado en Git, un sistema de control de versiones que me ayuda a gestionar todo el historial de cambios, facilitando la colaboración sin que los errores o conflictos se presenten entre los miembros del equipo.
 
-git add . --> añadimos los archivos que tengamos
+## Comandos Básicos de Git
 
-git commit -m "Guardado" --> Es como hacer un snapshot del fichero 
+Estos son algunos de los comandos más importantes que uso para trabajar con Git y GitHub:
 
-git push subimos 
+- **`git init`**: Inicia un nuevo repositorio Git en mi directorio.
+- **`git status`**: Muestra el estado de los archivos, es decir, qué archivos se han modificado o agregado.
+- **`git add .`**: Agrega todos los archivos modificados para prepararlos antes de hacer un commit.
+- **`git commit -m "Mensaje"`**: Guarda los cambios que he hecho en el repositorio con un mensaje explicativo.
+- **`git push`**: Sube los cambios que he hecho localmente al repositorio remoto en GitHub.
 
-********
-git banch -> para ver nuestras ramas y en que rama estamos trabajando 
+## Ramas (Branches)
 
-git switch master --> para cambiar de rama en casi de que estemos en otra rama 
+GitHub me permite trabajar con ramas, que son versiones separadas del proyecto donde puedo hacer cambios sin afectar el trabajo principal (la rama `main` o `master`). Luego, puedo fusionar las ramas cuando los cambios estén listos.
 
-git swicht -c "RAMA2" --> para crear una rama
+- **`git branch`**: Muestra las ramas que tengo en el repositorio.
+- **`git switch <nombre_rama>`**: Cambio de una rama a otra.
+- **`git merge <nombre_rama>`**: Fusiona los cambios de una rama a la actual.
 
-git log --> para revisar los commits realizados
+## Colaboración en GitHub
 
-git checkout --> se copia el id del log para volver al comit que teníamos guardado 
+GitHub está diseñado para que pueda colaborar fácilmente con otros desarrolladores. Algunas herramientas importantes para la colaboración son:
 
+- **Pull Requests (PR)**: Cuando hago cambios en una rama y quiero integrarlos con la rama principal, creo un pull request. Otras personas pueden revisar y comentar mis cambios antes de fusionarlos.
+- **Issues**: Puedo usar los issues para crear tareas, rastrear errores o sugerir nuevas funcionalidades para el proyecto.
 
-# LOG DE GITHUB TOKEN 
+## Fork y Pull Request
 
+Si quiero contribuir a proyectos de código abierto, puedo seguir este flujo:
 
-git remote add origin https://.... --> es para conectar mi repositorio
+1. **Fork**: Hago una copia del repositorio para poder modificarlo.
+2. **Pull Request**: Después de hacer mis cambios, envío un pull request para que los encargados del proyecto revisen y fusionen mis modificaciones.
 
-git push origin master --> para subir nuestra rama master y aparecerá todos los comits 
+## GitHub Actions
 
-# Pruebas-Test
+GitHub Actions me permite automatizar tareas como pruebas, compilación y despliegue. Puedo crear flujos de trabajo automáticos que se ejecutan en eventos específicos, como cuando subo nuevos cambios al repositorio.
 
-boris@Dev-Final:~/RoadMap-Dev$ git checkout main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
-boris@Dev-Final:~/RoadMap-Dev$ git checkout -b gh-pages
-Switched to a new branch 'gh-pages'
-boris@Dev-Final:~/RoadMap-Dev$ git push -u origin gh-pages
-test
+## Seguridad y Permisos
+
+En GitHub, puedo gestionar quién puede ver o modificar mis repositorios:
+
+- **Permisos de Repositorio**: Puedo establecer quién tiene acceso para ver, editar o contribuir en mi proyecto.
+- **Branch Protection Rules**: Puedo proteger ciertas ramas para asegurarme de que los cambios solo se hagan después de pasar revisiones o pruebas.
+
+## Buenas Prácticas
+
+Al trabajar con Git y GitHub, es importante seguir algunas buenas prácticas:
+
+- Hacer **commits pequeños y frecuentes** para evitar conflictos.
+- Escribir **mensajes de commit claros** que expliquen qué cambios se hicieron.
+- Mantener las **ramas organizadas** y nombrarlas de manera descriptiva.
+
+## Conclusión
+
+GitHub no es solo un lugar donde almaceno código. Es una herramienta poderosa que me permite colaborar con otros, automatizar tareas y organizar el desarrollo de mis proyectos de manera más eficiente. Aprovechando todas sus funcionalidades y siguiendo buenas prácticas, puedo trabajar de manera más ordenada y productiva.

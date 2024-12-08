@@ -1,3 +1,5 @@
 ---
 title: "Jenkins"
 ---
+
+![Diagrama de Docker](https://drive.google.com/file/d/1Ax4MjoQ9ul8mb8AV4OHHR1i4ZXqYJCn1/view"Representación gráfica de Docker")

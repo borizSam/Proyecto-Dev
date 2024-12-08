@@ -1,5 +1,98 @@
 ---
-title: "Kubertnetes"
+title: "Docker"
 ---
+![Diagrama de Docker](https://miro.medium.com/v2/resize:fit:720/format:webp/1*3ds-PdxGGMN-ZzJH95_lsA.png "Representación gráfica de Docker")
 
-t
+## 1. **¿Qué es Docker?**
+- Docker es una plataforma que permite empaquetar, distribuir y ejecutar aplicaciones en **contenedores**.
+- Los **contenedores** son entornos ligeros y aislados que incluyen todo lo necesario para ejecutar una aplicación: código, dependencias y configuraciones.
+
+## 2. **Componentes principales de Docker**
+- **Docker Engine:** El núcleo de Docker que permite crear y ejecutar contenedores.
+- **Imágenes:** Plantillas inmutables que contienen el sistema operativo, dependencias y la aplicación. Se construyen a partir de un archivo llamado `Dockerfile`.
+- **Contenedores:** Instancias en ejecución basadas en imágenes.
+- **Docker Hub:** Un registro público para compartir imágenes de Docker.
+- **Volumes:** Almacenamiento persistente para datos generados dentro de los contenedores.
+
+## 3. **Conceptos básicos de uso**
+- **Dockerfile:** Archivo que define cómo se crea una imagen (instrucciones como `FROM`, `COPY`, `RUN`).
+- **Comandos esenciales:**  
+  - `docker build`: Crea una imagen a partir de un `Dockerfile`.
+  - `docker run`: Ejecuta un contenedor basado en una imagen.
+  - `docker ps`: Lista los contenedores en ejecución.
+  - `docker stop`: Detiene un contenedor en ejecución.
+  - `docker pull` y `docker push`: Descargar o subir imágenes al registro.
+
+## 4. **Ventajas de usar Docker**
+- Portabilidad: Los contenedores funcionan igual en cualquier sistema que soporte Docker.
+- Aislamiento: Los entornos son independientes, evitando conflictos entre aplicaciones.
+- Escalabilidad: Ideal para entornos de microservicios y despliegues en la nube.
+- Rapidez: Contenedores más ligeros que las máquinas virtuales tradicionales.
+
+## 5. **Casos de uso comunes**
+- **Desarrollo:** Crear entornos consistentes para los desarrolladores.
+- **Pruebas:** Simular entornos de producción en local.
+- **Despliegue:** Automatizar la distribución de aplicaciones en servidores o nubes.
+
+## ¿Docker Hub?
+Docker Hub es una plataforma en línea para almacenar, compartir y descargar imágenes de Docker. Es el registro oficial de Docker, con imágenes públicas, privadas y oficiales mantenidas por Docker y terceros confiables.
+
+## ¿Cómo funciona?
+1. **Registro:** Creamos una cuenta en [Docker Hub](https://hub.docker.com).
+2. **Buscar imágenes:** Usamos `docker search <nombre>` o busca en la web.
+3. **Descargar imágenes:** Usamos `docker pull <imagen>`, por ejemplo, `docker pull nginx`.
+4. **Subir imágenes:**
+   - Etiqueta: `docker tag <imagen-local> <usuario>/<repositorio>`.
+   - Sube: `docker push <usuario>/<repositorio>`.
+5. **Repositorios:** Organiza imágenes en repositorios públicos (gratis) o privados (requiere plan pago).
+
+## Ventajas
+- **Almacenamiento y descarga global.**
+- **Imágenes oficiales verificadas.**
+- **Automatización de imágenes.**
+- **Colaboración en equipo.**
+
+Docker Hub es esencial para gestionar y compartir imágenes en proyectos Docker.
+
+# Manual de Instalación Oficial de Docker en Ubuntu
+
+Manual de instalación oficial de Docker para Ubuntu en el siguiente enlace:
+
+[Docker - Instalación en Ubuntu](https://docs.docker.com/engine/install/ubuntu/#installation-methods)
+
+# Instalar Docker usando el apt repositorio en Ubuntu
+
+Antes de instalar **Docker Engine** por primera vez en una nueva máquina host, debe configurar el **apt repositorio de Docker**. Luego, podrá instalar y actualizar Docker desde dicho repositorio.
+
+## Instalar docker usando el apt repositorio
+
+### 1. Agregar la clave GPG oficial de Docker:
+
+Ejecuta los siguientes comandos para agregar la clave GPG oficial de Docker:
+
+
+    - sudo apt-get update
+    - sudo apt-get install ca-certificates curl
+    - sudo install -m 0755 -d /etc/apt/keyrings
+    - sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    - sudo chmod a+r /etc/apt/keyrings/docker.asc ```
+
+### 2. Agregar el repositorio a las fuentes de Apt:
+
+    - echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    
+    - sudo apt-get update
+
+Nota:
+Si utiliza una distribución derivada de Ubuntu, como Linux Mint, es posible que necesite utilizar UBUNTU_CODENAME en lugar de VERSION_CODENAME.
+
+### Instalar los paquetes de Docker
+    - sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    - sudo docker run hello-world
+### Revisar la version de tu docker instalado
+    - sudo docker --version
+
+

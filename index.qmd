@@ -5,6 +5,8 @@ title: "Quarto"
 MODIFICAR LA DOCUMENTACIÓN
 :::
 
+![Flujo de quarto](https://carpentries-incubator.github.io/reproducible-publications-quarto/fig/03-qmd-workflow.png "Flujo de quarto")
+
 # Quarto: Es un motor de Publicación de Código Abierto
 
 **Quarto** es una herramienta de publicación de código abierto diseñada para crear documentos dinámicos y reproducibles utilizando lenguajes de programación como **R**, **Python**, **Julia** y **Observable**. 
@@ -45,7 +47,4 @@ Quarto es una solución poderosa que busca combinar análisis, visualización y 
 Proximamente ... 
 
 # Manual de automatización con gitpages y crear workflows
-renamed:    .github/publish.yml -> .github/workflows/publish.yml
-
-modified:   index.qmd
-TEST - BASH
+Proximamente ... 
