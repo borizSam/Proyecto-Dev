@@ -16,12 +16,26 @@ website:
           - text: About
             href: about.qmd
 
-      - text: Kubernetes
+      - text: Docker
         menu:
           - text: Introducción
-            href: indexkubi.qmd
-          - text: test
-            href: kubi.qmd
+            href: docker.qmd
+          - text: About
+            href: about.qmd
+
+      - text: Jenkins
+        menu:
+          - text: Introducción
+            href: jenkins.qmd
+          - text: About
+            href: about.qmd
+      
+      - text: AWS
+        menu:
+          - text: Introducción
+            href: amazon.qmd
+          - text: About
+            href: about.qmd      
       
       - text: Github
         menu:
@@ -37,7 +51,9 @@ website:
 nav:
   - Home: index.qmd
   - About: about.qmd
-  - Kubernetes: indexkubi.qmd
+  - Docker: docker.qmd
+  - Jenkins: jenkins.qmd
+  - Amazon: amazon.qmd
   - Github: indexgit.qmd
   - Contact: contact.qmd
 
