@@ -41,8 +41,8 @@ website:
         menu:
           - text: Comandos Basicos
             href: indexgit.qmd
-          - text: test
-            href: git.qmd          
+          - text: About
+            href: about.qmd       
     
     right:
       - text: Contact
@@ -52,11 +52,16 @@ nav:
   - Home: index.qmd
   - About: about.qmd
   - Docker: docker.qmd
+  - About: about.qmd
   - Jenkins: jenkins.qmd
+  - About: about.qmd
   - Amazon: amazon.qmd
+  - About: about.qmd
   - Github: indexgit.qmd
+  - About: about.qmd
   - Contact: contact.qmd
-
+  - About: about.qmd
+  
 format:
   html:
     theme: cosmo

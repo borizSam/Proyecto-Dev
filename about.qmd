@@ -1,37 +1,7 @@
 ---
-title: "TEST MERMAID"
+title: "About"
 ---
 
-``` mermaid
-graph LR
-    A[Client] --> B[Load Balancer]
-    B --> C[Server1]
-    B --> D[Server2]
-
-```markdown
-```{mermaid}
-classDiagram
-    note "De Pato a Cebra"
-    Animal <|-- Duck
-    note for Duck "puede volar\npuede nadar\npuede bucear\npuede ayudar en la depuración"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int edad
-    Animal : +String género
-    Animal: +esMamífero()
-    Animal: +reproducirse()
-    class Duck{
-        +String colorPico
-        +nadar()
-        +cuack()
-    }
-    class Fish{
-        -int tamañoEnPies
-        -comer()
-    }
-    class Zebra{
-        +bool esSalvaje
-        +correr()
-    }
-
-    
+::: callout
+Espacio reservado
+:::
