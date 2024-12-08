@@ -46,5 +46,6 @@ Proximamente ...
 
 # Manual de automatización con gitpages y crear workflows
 renamed:    .github/publish.yml -> .github/workflows/publish.yml
+
 modified:   index.qmd
 TEST - BASH
