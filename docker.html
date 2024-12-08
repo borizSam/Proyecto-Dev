@@ -8,7 +8,7 @@
 
 <meta name="author" content="Boris Ivan Huarachi Perez">
 
-<title>Kubertnetes – DevOps</title>
+<title>Docker – DevOps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -181,15 +181,39 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#qué-es-docker" id="toc-qué-es-docker" class="nav-link active" data-scroll-target="#qué-es-docker">1. <strong>¿Qué es Docker?</strong></a></li>
+  <li><a href="#componentes-principales-de-docker" id="toc-componentes-principales-de-docker" class="nav-link" data-scroll-target="#componentes-principales-de-docker">2. <strong>Componentes principales de Docker</strong></a></li>
+  <li><a href="#conceptos-básicos-de-uso" id="toc-conceptos-básicos-de-uso" class="nav-link" data-scroll-target="#conceptos-básicos-de-uso">3. <strong>Conceptos básicos de uso</strong></a></li>
+  <li><a href="#ventajas-de-usar-docker" id="toc-ventajas-de-usar-docker" class="nav-link" data-scroll-target="#ventajas-de-usar-docker">4. <strong>Ventajas de usar Docker</strong></a></li>
+  <li><a href="#casos-de-uso-comunes" id="toc-casos-de-uso-comunes" class="nav-link" data-scroll-target="#casos-de-uso-comunes">5. <strong>Casos de uso comunes</strong></a></li>
+  <li><a href="#docker-hub" id="toc-docker-hub" class="nav-link" data-scroll-target="#docker-hub">¿Docker Hub?</a></li>
+  <li><a href="#cómo-funciona" id="toc-cómo-funciona" class="nav-link" data-scroll-target="#cómo-funciona">¿Cómo funciona?</a></li>
+  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas">Ventajas</a></li>
+  <li><a href="#manual-de-instalación-oficial-de-docker-en-ubuntu" id="toc-manual-de-instalación-oficial-de-docker-en-ubuntu" class="nav-link" data-scroll-target="#manual-de-instalación-oficial-de-docker-en-ubuntu">Manual de Instalación Oficial de Docker en Ubuntu</a></li>
+  <li><a href="#instalar-docker-usando-el-apt-repositorio-en-ubuntu" id="toc-instalar-docker-usando-el-apt-repositorio-en-ubuntu" class="nav-link" data-scroll-target="#instalar-docker-usando-el-apt-repositorio-en-ubuntu">Instalar Docker usando el apt repositorio en Ubuntu</a>
+  <ul class="collapse">
+  <li><a href="#instalar-docker-usando-el-apt-repositorio" id="toc-instalar-docker-usando-el-apt-repositorio" class="nav-link" data-scroll-target="#instalar-docker-usando-el-apt-repositorio">Instalar docker usando el apt repositorio</a>
+  <ul class="collapse">
+  <li><a href="#agregar-la-clave-gpg-oficial-de-docker" id="toc-agregar-la-clave-gpg-oficial-de-docker" class="nav-link" data-scroll-target="#agregar-la-clave-gpg-oficial-de-docker">1. Agregar la clave GPG oficial de Docker:</a></li>
+  <li><a href="#agregar-el-repositorio-a-las-fuentes-de-apt" id="toc-agregar-el-repositorio-a-las-fuentes-de-apt" class="nav-link" data-scroll-target="#agregar-el-repositorio-a-las-fuentes-de-apt">2. Agregar el repositorio a las fuentes de Apt:</a></li>
+  <li><a href="#instalar-los-paquetes-de-docker" id="toc-instalar-los-paquetes-de-docker" class="nav-link" data-scroll-target="#instalar-los-paquetes-de-docker">Instalar los paquetes de Docker</a></li>
+  <li><a href="#revisar-la-version-de-tu-docker-instalado" id="toc-revisar-la-version-de-tu-docker-instalado" class="nav-link" data-scroll-target="#revisar-la-version-de-tu-docker-instalado">Revisar la version de tu docker instalado</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Kubertnetes</h1>
+<h1 class="title">Docker</h1>
 </div>
 
 
@@ -212,9 +236,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>t</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*3ds-PdxGGMN-ZzJH95_lsA.png" title="Representación gráfica de Docker" class="img-fluid figure-img"></p>
+<figcaption>Diagrama de Docker</figcaption>
+</figure>
+</div>
+<section id="qué-es-docker" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-docker">1. <strong>¿Qué es Docker?</strong></h2>
+<ul>
+<li>Docker es una plataforma que permite empaquetar, distribuir y ejecutar aplicaciones en <strong>contenedores</strong>.</li>
+<li>Los <strong>contenedores</strong> son entornos ligeros y aislados que incluyen todo lo necesario para ejecutar una aplicación: código, dependencias y configuraciones.</li>
+</ul>
+</section>
+<section id="componentes-principales-de-docker" class="level2">
+<h2 class="anchored" data-anchor-id="componentes-principales-de-docker">2. <strong>Componentes principales de Docker</strong></h2>
+<ul>
+<li><strong>Docker Engine:</strong> El núcleo de Docker que permite crear y ejecutar contenedores.</li>
+<li><strong>Imágenes:</strong> Plantillas inmutables que contienen el sistema operativo, dependencias y la aplicación. Se construyen a partir de un archivo llamado <code>Dockerfile</code>.</li>
+<li><strong>Contenedores:</strong> Instancias en ejecución basadas en imágenes.</li>
+<li><strong>Docker Hub:</strong> Un registro público para compartir imágenes de Docker.</li>
+<li><strong>Volumes:</strong> Almacenamiento persistente para datos generados dentro de los contenedores.</li>
+</ul>
+</section>
+<section id="conceptos-básicos-de-uso" class="level2">
+<h2 class="anchored" data-anchor-id="conceptos-básicos-de-uso">3. <strong>Conceptos básicos de uso</strong></h2>
+<ul>
+<li><strong>Dockerfile:</strong> Archivo que define cómo se crea una imagen (instrucciones como <code>FROM</code>, <code>COPY</code>, <code>RUN</code>).</li>
+<li><strong>Comandos esenciales:</strong>
+<ul>
+<li><code>docker build</code>: Crea una imagen a partir de un <code>Dockerfile</code>.</li>
+<li><code>docker run</code>: Ejecuta un contenedor basado en una imagen.</li>
+<li><code>docker ps</code>: Lista los contenedores en ejecución.</li>
+<li><code>docker stop</code>: Detiene un contenedor en ejecución.</li>
+<li><code>docker pull</code> y <code>docker push</code>: Descargar o subir imágenes al registro.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ventajas-de-usar-docker" class="level2">
+<h2 class="anchored" data-anchor-id="ventajas-de-usar-docker">4. <strong>Ventajas de usar Docker</strong></h2>
+<ul>
+<li>Portabilidad: Los contenedores funcionan igual en cualquier sistema que soporte Docker.</li>
+<li>Aislamiento: Los entornos son independientes, evitando conflictos entre aplicaciones.</li>
+<li>Escalabilidad: Ideal para entornos de microservicios y despliegues en la nube.</li>
+<li>Rapidez: Contenedores más ligeros que las máquinas virtuales tradicionales.</li>
+</ul>
+</section>
+<section id="casos-de-uso-comunes" class="level2">
+<h2 class="anchored" data-anchor-id="casos-de-uso-comunes">5. <strong>Casos de uso comunes</strong></h2>
+<ul>
+<li><strong>Desarrollo:</strong> Crear entornos consistentes para los desarrolladores.</li>
+<li><strong>Pruebas:</strong> Simular entornos de producción en local.</li>
+<li><strong>Despliegue:</strong> Automatizar la distribución de aplicaciones en servidores o nubes.</li>
+</ul>
+</section>
+<section id="docker-hub" class="level2">
+<h2 class="anchored" data-anchor-id="docker-hub">¿Docker Hub?</h2>
+<p>Docker Hub es una plataforma en línea para almacenar, compartir y descargar imágenes de Docker. Es el registro oficial de Docker, con imágenes públicas, privadas y oficiales mantenidas por Docker y terceros confiables.</p>
+</section>
+<section id="cómo-funciona" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-funciona">¿Cómo funciona?</h2>
+<ol type="1">
+<li><strong>Registro:</strong> Creamos una cuenta en <a href="https://hub.docker.com">Docker Hub</a>.</li>
+<li><strong>Buscar imágenes:</strong> Usamos <code>docker search &lt;nombre&gt;</code> o busca en la web.</li>
+<li><strong>Descargar imágenes:</strong> Usamos <code>docker pull &lt;imagen&gt;</code>, por ejemplo, <code>docker pull nginx</code>.</li>
+<li><strong>Subir imágenes:</strong>
+<ul>
+<li>Etiqueta: <code>docker tag &lt;imagen-local&gt; &lt;usuario&gt;/&lt;repositorio&gt;</code>.</li>
+<li>Sube: <code>docker push &lt;usuario&gt;/&lt;repositorio&gt;</code>.</li>
+</ul></li>
+<li><strong>Repositorios:</strong> Organiza imágenes en repositorios públicos (gratis) o privados (requiere plan pago).</li>
+</ol>
+</section>
+<section id="ventajas" class="level2">
+<h2 class="anchored" data-anchor-id="ventajas">Ventajas</h2>
+<ul>
+<li><strong>Almacenamiento y descarga global.</strong></li>
+<li><strong>Imágenes oficiales verificadas.</strong></li>
+<li><strong>Automatización de imágenes.</strong></li>
+<li><strong>Colaboración en equipo.</strong></li>
+</ul>
+<p>Docker Hub es esencial para gestionar y compartir imágenes en proyectos Docker.</p>
+</section>
+<section id="manual-de-instalación-oficial-de-docker-en-ubuntu" class="level1">
+<h1>Manual de Instalación Oficial de Docker en Ubuntu</h1>
+<p>Manual de instalación oficial de Docker para Ubuntu en el siguiente enlace:</p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker - Instalación en Ubuntu</a></p>
+</section>
+<section id="instalar-docker-usando-el-apt-repositorio-en-ubuntu" class="level1">
+<h1>Instalar Docker usando el apt repositorio en Ubuntu</h1>
+<p>Antes de instalar <strong>Docker Engine</strong> por primera vez en una nueva máquina host, debe configurar el <strong>apt repositorio de Docker</strong>. Luego, podrá instalar y actualizar Docker desde dicho repositorio.</p>
+<section id="instalar-docker-usando-el-apt-repositorio" class="level2">
+<h2 class="anchored" data-anchor-id="instalar-docker-usando-el-apt-repositorio">Instalar docker usando el apt repositorio</h2>
+<section id="agregar-la-clave-gpg-oficial-de-docker" class="level3">
+<h3 class="anchored" data-anchor-id="agregar-la-clave-gpg-oficial-de-docker">1. Agregar la clave GPG oficial de Docker:</h3>
+<p>Ejecuta los siguientes comandos para agregar la clave GPG oficial de Docker:</p>
+<pre><code>- sudo apt-get update
+- sudo apt-get install ca-certificates curl
+- sudo install -m 0755 -d /etc/apt/keyrings
+- sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+- sudo chmod a+r /etc/apt/keyrings/docker.asc ```</code></pre>
+</section>
+<section id="agregar-el-repositorio-a-las-fuentes-de-apt" class="level3">
+<h3 class="anchored" data-anchor-id="agregar-el-repositorio-a-las-fuentes-de-apt">2. Agregar el repositorio a las fuentes de Apt:</h3>
+<pre><code>- echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+
+- sudo apt-get update</code></pre>
+<p>Nota: Si utiliza una distribución derivada de Ubuntu, como Linux Mint, es posible que necesite utilizar UBUNTU_CODENAME en lugar de VERSION_CODENAME.</p>
+</section>
+<section id="instalar-los-paquetes-de-docker" class="level3">
+<h3 class="anchored" data-anchor-id="instalar-los-paquetes-de-docker">Instalar los paquetes de Docker</h3>
+<pre><code>- sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+- sudo docker run hello-world</code></pre>
+</section>
+<section id="revisar-la-version-de-tu-docker-instalado" class="level3">
+<h3 class="anchored" data-anchor-id="revisar-la-version-de-tu-docker-instalado">Revisar la version de tu docker instalado</h3>
+<pre><code>- sudo docker --version</code></pre>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

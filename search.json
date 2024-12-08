@@ -30,23 +30,156 @@
   {
     "objectID": "docker.html",
     "href": "docker.html",
-    "title": "Kubertnetes",
+    "title": "Docker",
     "section": "",
-    "text": "t"
+    "text": "Diagrama de Docker"
+  },
+  {
+    "objectID": "docker.html#qué-es-docker",
+    "href": "docker.html#qué-es-docker",
+    "title": "Docker",
+    "section": "1. ¿Qué es Docker?",
+    "text": "1. ¿Qué es Docker?\n\nDocker es una plataforma que permite empaquetar, distribuir y ejecutar aplicaciones en contenedores.\nLos contenedores son entornos ligeros y aislados que incluyen todo lo necesario para ejecutar una aplicación: código, dependencias y configuraciones."
+  },
+  {
+    "objectID": "docker.html#componentes-principales-de-docker",
+    "href": "docker.html#componentes-principales-de-docker",
+    "title": "Docker",
+    "section": "2. Componentes principales de Docker",
+    "text": "2. Componentes principales de Docker\n\nDocker Engine: El núcleo de Docker que permite crear y ejecutar contenedores.\nImágenes: Plantillas inmutables que contienen el sistema operativo, dependencias y la aplicación. Se construyen a partir de un archivo llamado Dockerfile.\nContenedores: Instancias en ejecución basadas en imágenes.\nDocker Hub: Un registro público para compartir imágenes de Docker.\nVolumes: Almacenamiento persistente para datos generados dentro de los contenedores."
+  },
+  {
+    "objectID": "docker.html#conceptos-básicos-de-uso",
+    "href": "docker.html#conceptos-básicos-de-uso",
+    "title": "Docker",
+    "section": "3. Conceptos básicos de uso",
+    "text": "3. Conceptos básicos de uso\n\nDockerfile: Archivo que define cómo se crea una imagen (instrucciones como FROM, COPY, RUN).\nComandos esenciales:\n\ndocker build: Crea una imagen a partir de un Dockerfile.\ndocker run: Ejecuta un contenedor basado en una imagen.\ndocker ps: Lista los contenedores en ejecución.\ndocker stop: Detiene un contenedor en ejecución.\ndocker pull y docker push: Descargar o subir imágenes al registro."
+  },
+  {
+    "objectID": "docker.html#ventajas-de-usar-docker",
+    "href": "docker.html#ventajas-de-usar-docker",
+    "title": "Docker",
+    "section": "4. Ventajas de usar Docker",
+    "text": "4. Ventajas de usar Docker\n\nPortabilidad: Los contenedores funcionan igual en cualquier sistema que soporte Docker.\nAislamiento: Los entornos son independientes, evitando conflictos entre aplicaciones.\nEscalabilidad: Ideal para entornos de microservicios y despliegues en la nube.\nRapidez: Contenedores más ligeros que las máquinas virtuales tradicionales."
+  },
+  {
+    "objectID": "docker.html#casos-de-uso-comunes",
+    "href": "docker.html#casos-de-uso-comunes",
+    "title": "Docker",
+    "section": "5. Casos de uso comunes",
+    "text": "5. Casos de uso comunes\n\nDesarrollo: Crear entornos consistentes para los desarrolladores.\nPruebas: Simular entornos de producción en local.\nDespliegue: Automatizar la distribución de aplicaciones en servidores o nubes."
+  },
+  {
+    "objectID": "docker.html#docker-hub",
+    "href": "docker.html#docker-hub",
+    "title": "Docker",
+    "section": "¿Docker Hub?",
+    "text": "¿Docker Hub?\nDocker Hub es una plataforma en línea para almacenar, compartir y descargar imágenes de Docker. Es el registro oficial de Docker, con imágenes públicas, privadas y oficiales mantenidas por Docker y terceros confiables."
+  },
+  {
+    "objectID": "docker.html#cómo-funciona",
+    "href": "docker.html#cómo-funciona",
+    "title": "Docker",
+    "section": "¿Cómo funciona?",
+    "text": "¿Cómo funciona?\n\nRegistro: Creamos una cuenta en Docker Hub.\nBuscar imágenes: Usamos docker search &lt;nombre&gt; o busca en la web.\nDescargar imágenes: Usamos docker pull &lt;imagen&gt;, por ejemplo, docker pull nginx.\nSubir imágenes:\n\nEtiqueta: docker tag &lt;imagen-local&gt; &lt;usuario&gt;/&lt;repositorio&gt;.\nSube: docker push &lt;usuario&gt;/&lt;repositorio&gt;.\n\nRepositorios: Organiza imágenes en repositorios públicos (gratis) o privados (requiere plan pago)."
+  },
+  {
+    "objectID": "docker.html#ventajas",
+    "href": "docker.html#ventajas",
+    "title": "Docker",
+    "section": "Ventajas",
+    "text": "Ventajas\n\nAlmacenamiento y descarga global.\nImágenes oficiales verificadas.\nAutomatización de imágenes.\nColaboración en equipo.\n\nDocker Hub es esencial para gestionar y compartir imágenes en proyectos Docker."
+  },
+  {
+    "objectID": "docker.html#instalar-docker-usando-el-apt-repositorio",
+    "href": "docker.html#instalar-docker-usando-el-apt-repositorio",
+    "title": "Docker",
+    "section": "Instalar docker usando el apt repositorio",
+    "text": "Instalar docker usando el apt repositorio\n\n1. Agregar la clave GPG oficial de Docker:\nEjecuta los siguientes comandos para agregar la clave GPG oficial de Docker:\n- sudo apt-get update\n- sudo apt-get install ca-certificates curl\n- sudo install -m 0755 -d /etc/apt/keyrings\n- sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc\n- sudo chmod a+r /etc/apt/keyrings/docker.asc ```\n\n\n2. Agregar el repositorio a las fuentes de Apt:\n- echo \\\n    \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \\\n    $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable\" | \\\nsudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null\n\n- sudo apt-get update\nNota: Si utiliza una distribución derivada de Ubuntu, como Linux Mint, es posible que necesite utilizar UBUNTU_CODENAME en lugar de VERSION_CODENAME.\n\n\nInstalar los paquetes de Docker\n- sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin\n- sudo docker run hello-world\n\n\nRevisar la version de tu docker instalado\n- sudo docker --version"
+  },
+  {
+    "objectID": "jenkins.html",
+    "href": "jenkins.html",
+    "title": "Jenkins",
+    "section": "",
+    "text": "Diagrama de Docker"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "TEST MERMAID",
     "section": "",
-    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownirazwejok classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
+    "text": "``` mermaid graph LR A[Client] –&gt; B[Load Balancer] B –&gt; C[Server1] B –&gt; D[Server2]\nmarkdownogrffzlex classDiagram note “De Pato a Cebra” Animal &lt;|– Duck note for Duck “puede volarnadarbucearayudar en la depuración” Animal &lt;|– Fish Animal &lt;|– Zebra Animal : +int edad Animal : +String género Animal: +esMamífero() Animal: +reproducirse() class Duck{ +String colorPico +nadar() +cuack() } class Fish{ -int tamañoEnPies -comer() } class Zebra{ +bool esSalvaje +correr() }"
   },
   {
     "objectID": "indexgit.html",
     "href": "indexgit.html",
     "title": "GitHub",
     "section": "",
-    "text": "MODIFICAR LA DOCUMENTACIÓN\n\n\n\n\nComandos Github\ngit init –&gt; iniciamos el repo.\ngit status –&gt; revisamos que ficheros tenemos traqueados.\ngit add . –&gt; añadimos los archivos que tengamos\ngit commit -m “Guardado” –&gt; Es como hacer un snapshot del fichero\ngit push subimos\n\ngit banch -&gt; para ver nuestras ramas y en que rama estamos trabajando\ngit switch master –&gt; para cambiar de rama en casi de que estemos en otra rama\ngit swicht -c “RAMA2” –&gt; para crear una rama\ngit log –&gt; para revisar los commits realizados\ngit checkout –&gt; se copia el id del log para volver al comit que teníamos guardado\n\n\nLOG DE GITHUB TOKEN\ngit remote add origin https://…. –&gt; es para conectar mi repositorio\ngit push origin master –&gt; para subir nuestra rama master y aparecerá todos los comits\n\n\nPruebas-Test\nboris@Dev-Final:~/RoadMap-Dev$ git checkout main Already on ‘main’ Your branch is up to date with ‘origin/main’. boris@Dev-Final:~/RoadMap-Dev$ git checkout -b gh-pages Switched to a new branch ‘gh-pages’ boris@Dev-Final:~/RoadMap-Dev$ git push -u origin gh-pages test"
+    "text": "MODIFICAR LA DOCUMENTACIÓN\nGitHub es un espacio en línea donde puedo almacenar mis proyectos (repositorios), compartirlos con otras personas y colaborar. Utiliza Git para gestionar los cambios en el código, lo que me permite trabajar junto con otros desarrolladores sin interferir en su trabajo."
+  },
+  {
+    "objectID": "indexgit.html#qué-es-github",
+    "href": "indexgit.html#qué-es-github",
+    "title": "GitHub",
+    "section": "¿Qué es GitHub?",
+    "text": "¿Qué es GitHub?\nGitHub es una plataforma en línea que me permite guardar mis proyectos, trabajar en equipo y hacer un seguimiento de todos los cambios que se hacen en el código. Está basado en Git, un sistema de control de versiones que me ayuda a gestionar todo el historial de cambios, facilitando la colaboración sin que los errores o conflictos se presenten entre los miembros del equipo."
+  },
+  {
+    "objectID": "indexgit.html#comandos-básicos-de-git",
+    "href": "indexgit.html#comandos-básicos-de-git",
+    "title": "GitHub",
+    "section": "Comandos Básicos de Git",
+    "text": "Comandos Básicos de Git\nEstos son algunos de los comandos más importantes que uso para trabajar con Git y GitHub:\n\ngit init: Inicia un nuevo repositorio Git en mi directorio.\ngit status: Muestra el estado de los archivos, es decir, qué archivos se han modificado o agregado.\ngit add .: Agrega todos los archivos modificados para prepararlos antes de hacer un commit.\ngit commit -m \"Mensaje\": Guarda los cambios que he hecho en el repositorio con un mensaje explicativo.\ngit push: Sube los cambios que he hecho localmente al repositorio remoto en GitHub."
+  },
+  {
+    "objectID": "indexgit.html#ramas-branches",
+    "href": "indexgit.html#ramas-branches",
+    "title": "GitHub",
+    "section": "Ramas (Branches)",
+    "text": "Ramas (Branches)\nGitHub me permite trabajar con ramas, que son versiones separadas del proyecto donde puedo hacer cambios sin afectar el trabajo principal (la rama main o master). Luego, puedo fusionar las ramas cuando los cambios estén listos.\n\ngit branch: Muestra las ramas que tengo en el repositorio.\ngit switch &lt;nombre_rama&gt;: Cambio de una rama a otra.\ngit merge &lt;nombre_rama&gt;: Fusiona los cambios de una rama a la actual."
+  },
+  {
+    "objectID": "indexgit.html#colaboración-en-github",
+    "href": "indexgit.html#colaboración-en-github",
+    "title": "GitHub",
+    "section": "Colaboración en GitHub",
+    "text": "Colaboración en GitHub\nGitHub está diseñado para que pueda colaborar fácilmente con otros desarrolladores. Algunas herramientas importantes para la colaboración son:\n\nPull Requests (PR): Cuando hago cambios en una rama y quiero integrarlos con la rama principal, creo un pull request. Otras personas pueden revisar y comentar mis cambios antes de fusionarlos.\nIssues: Puedo usar los issues para crear tareas, rastrear errores o sugerir nuevas funcionalidades para el proyecto."
+  },
+  {
+    "objectID": "indexgit.html#fork-y-pull-request",
+    "href": "indexgit.html#fork-y-pull-request",
+    "title": "GitHub",
+    "section": "Fork y Pull Request",
+    "text": "Fork y Pull Request\nSi quiero contribuir a proyectos de código abierto, puedo seguir este flujo:\n\nFork: Hago una copia del repositorio para poder modificarlo.\nPull Request: Después de hacer mis cambios, envío un pull request para que los encargados del proyecto revisen y fusionen mis modificaciones."
+  },
+  {
+    "objectID": "indexgit.html#github-actions",
+    "href": "indexgit.html#github-actions",
+    "title": "GitHub",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions\nGitHub Actions me permite automatizar tareas como pruebas, compilación y despliegue. Puedo crear flujos de trabajo automáticos que se ejecutan en eventos específicos, como cuando subo nuevos cambios al repositorio."
+  },
+  {
+    "objectID": "indexgit.html#seguridad-y-permisos",
+    "href": "indexgit.html#seguridad-y-permisos",
+    "title": "GitHub",
+    "section": "Seguridad y Permisos",
+    "text": "Seguridad y Permisos\nEn GitHub, puedo gestionar quién puede ver o modificar mis repositorios:\n\nPermisos de Repositorio: Puedo establecer quién tiene acceso para ver, editar o contribuir en mi proyecto.\nBranch Protection Rules: Puedo proteger ciertas ramas para asegurarme de que los cambios solo se hagan después de pasar revisiones o pruebas."
+  },
+  {
+    "objectID": "indexgit.html#buenas-prácticas",
+    "href": "indexgit.html#buenas-prácticas",
+    "title": "GitHub",
+    "section": "Buenas Prácticas",
+    "text": "Buenas Prácticas\nAl trabajar con Git y GitHub, es importante seguir algunas buenas prácticas:\n\nHacer commits pequeños y frecuentes para evitar conflictos.\nEscribir mensajes de commit claros que expliquen qué cambios se hicieron.\nMantener las ramas organizadas y nombrarlas de manera descriptiva."
+  },
+  {
+    "objectID": "indexgit.html#conclusión",
+    "href": "indexgit.html#conclusión",
+    "title": "GitHub",
+    "section": "Conclusión",
+    "text": "Conclusión\nGitHub no es solo un lugar donde almaceno código. Es una herramienta poderosa que me permite colaborar con otros, automatizar tareas y organizar el desarrollo de mis proyectos de manera más eficiente. Aprovechando todas sus funcionalidades y siguiendo buenas prácticas, puedo trabajar de manera más ordenada y productiva."
   },
   {
     "objectID": "index.html",
