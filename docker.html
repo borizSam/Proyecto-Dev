@@ -205,6 +205,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#revisar-la-version-de-tu-docker-instalado" id="toc-revisar-la-version-de-tu-docker-instalado" class="nav-link" data-scroll-target="#revisar-la-version-de-tu-docker-instalado">Revisar la version de tu docker instalado</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#pra04-configuración-y-contenedorización-de-docker-para-aplicaciones-spring-boot-y-react" id="toc-pra04-configuración-y-contenedorización-de-docker-para-aplicaciones-spring-boot-y-react" class="nav-link" data-scroll-target="#pra04-configuración-y-contenedorización-de-docker-para-aplicaciones-spring-boot-y-react">PRA04: Configuración y contenedorización de Docker para aplicaciones Spring Boot y React</a>
+  <ul class="collapse">
+  <li><a href="#construcción-de-las-imágenes" id="toc-construcción-de-las-imágenes" class="nav-link" data-scroll-target="#construcción-de-las-imágenes">1. Construcción de las imágenes</a></li>
+  </ul></li>
+  <li><a href="#ejecución-de-contenedores-docker-para-backend-y-frontend" id="toc-ejecución-de-contenedores-docker-para-backend-y-frontend" class="nav-link" data-scroll-target="#ejecución-de-contenedores-docker-para-backend-y-frontend">Ejecución de Contenedores Docker para Backend y Frontend</a>
+  <ul class="collapse">
+  <li><a href="#ejecución-el-contenedor-de-react-y-spring" id="toc-ejecución-el-contenedor-de-react-y-spring" class="nav-link" data-scroll-target="#ejecución-el-contenedor-de-react-y-spring">1.2 Ejecución el contenedor de React y Spring</a></li>
+  <li><a href="#creación-de-una-red-interna-para-los-contenedores" id="toc-creación-de-una-red-interna-para-los-contenedores" class="nav-link" data-scroll-target="#creación-de-una-red-interna-para-los-contenedores">2. Creación de una Red Interna para los Contenedores</a></li>
+  <li><a href="#comprobación-de-la-configuración" id="toc-comprobación-de-la-configuración" class="nav-link" data-scroll-target="#comprobación-de-la-configuración">3. Comprobación de la Configuración</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -355,9 +365,37 @@ sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
 <section id="revisar-la-version-de-tu-docker-instalado" class="level3">
 <h3 class="anchored" data-anchor-id="revisar-la-version-de-tu-docker-instalado">Revisar la version de tu docker instalado</h3>
 <pre><code>- sudo docker --version</code></pre>
-
-
 </section>
+</section>
+</section>
+<section id="pra04-configuración-y-contenedorización-de-docker-para-aplicaciones-spring-boot-y-react" class="level1">
+<h1>PRA04: Configuración y contenedorización de Docker para aplicaciones Spring Boot y React</h1>
+<section id="construcción-de-las-imágenes" class="level3">
+<h3 class="anchored" data-anchor-id="construcción-de-las-imágenes">1. Construcción de las imágenes</h3>
+<p>Construimos las imágenes para el <em>springboot</em> y el <em>react</em>:</p>
+<pre><code>- docker build -f books.dockerfile -t react .
+- docker build -f app3.dockerfile -t spring-boot .</code></pre>
+</section>
+</section>
+<section id="ejecución-de-contenedores-docker-para-backend-y-frontend" class="level1">
+<h1>Ejecución de Contenedores Docker para Backend y Frontend</h1>
+<p>Ejecutar contenedores Docker para una aplicación de backend (Spring Boot) y frontend (React), configurando una red interna para permitir la comunicación entre ellos.</p>
+<section id="ejecución-el-contenedor-de-react-y-spring" class="level2">
+<h2 class="anchored" data-anchor-id="ejecución-el-contenedor-de-react-y-spring">1.2 Ejecución el contenedor de React y Spring</h2>
+<p>Para ejecutar el contenedor de React en el puerto 90 (en el host) y el puerto 80 (en el contenedor), se utiliza el siguiente comando: <code>docker run -d --name react -p 90:80 react</code>.</p>
+<p>El contenedor de React se ejecutará en el puerto 80 dentro del contenedor, pero mapeado al puerto 90 en el host, para permitir que el frontend esté accesible desde <code>http://localhost:90</code>.</p>
+<p>Para ejecutar el contenedor de <strong>Spring Boot</strong> en el puerto <code>8080</code> tanto en el contenedor como en el host, se utiliza el siguiente comando:</p>
+<p><code>docker run -d --name spring-boot -p 8080:8080 spring-boot</code>.</p>
+</section>
+<section id="creación-de-una-red-interna-para-los-contenedores" class="level2">
+<h2 class="anchored" data-anchor-id="creación-de-una-red-interna-para-los-contenedores">2. Creación de una Red Interna para los Contenedores</h2>
+<p>Para permitir que los contenedores se comuniquen entre sí de manera segura, creamos una red interna de Docker. <code>sudo docker network create red-book-spring</code> Ahora verificamos las redes creadas en Docker con el siguiente comando: <code>sudo docker network ls</code>. Luego lanzamos ambos contenedores dentro de una red interna llamada <code>red-book-spring</code>. Esto permite que los contenedores se comuniquen entre sí sin necesidad de exponer sus puertos públicamente, utilizando los siguientes comandos: <code>sudo docker run -d --name spring --network red-book-spring -p 8080:8080 spring-boot</code> y <code>sudo docker run -d --name react --network red-book-spring -p 90:80 react</code>. Con estas configuraciones, los contenedores de Spring Boot y React estarán conectados a la red <code>red-book-spring</code> y podrán comunicarse entre sí dentro de la red interna, sin necesidad de exponer puertos adicionales al exterior.</p>
+</section>
+<section id="comprobación-de-la-configuración" class="level2">
+<h2 class="anchored" data-anchor-id="comprobación-de-la-configuración">3. Comprobación de la Configuración</h2>
+<p>Para revisar de que todo está configurado correctamente y los contenedores están funcionando, podemos utilizar los siguientes comandos: <code>sudo docker ps</code> para verificar que los contenedores están en ejecución, y <code>sudo docker network inspect red-book-spring</code> para verificar la conexión de los contenedores a la red. Con estos pasos, los contenedores de Spring Boot y React estarán ejecutándose correctamente y podrán comunicarse entre sí dentro de la red interna.</p>
+
+
 </section>
 </section>
 
