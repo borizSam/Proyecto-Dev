@@ -95,4 +95,38 @@ Si utiliza una distribución derivada de Ubuntu, como Linux Mint, es posible que
 ### Revisar la version de tu docker instalado
     - sudo docker --version
 
+# PRA04: Configuración y contenedorización de Docker para aplicaciones Spring Boot y React
+
+### 1. Construcción de las imágenes
+
+Construimos las imágenes para el *springboot* y el *react*:
+
+    - docker build -f books.dockerfile -t react .
+    - docker build -f app3.dockerfile -t spring-boot .
+
+# Ejecución de Contenedores Docker para Backend y Frontend
+
+Ejecutar contenedores Docker para una aplicación de backend (Spring Boot) y frontend (React), configurando una red interna para permitir la comunicación entre ellos.
+
+## 1.2 Ejecución el contenedor de React y Spring
+
+Para ejecutar el contenedor de React en el puerto 90 (en el host) y el puerto 80 (en el contenedor), se utiliza el siguiente comando: `docker run -d --name react -p 90:80 react`. 
+
+El contenedor de React se ejecutará en el puerto 80 dentro del contenedor, pero mapeado al puerto 90 en el host, para permitir que el frontend esté accesible desde `http://localhost:90`.
+
+Para ejecutar el contenedor de **Spring Boot** en el puerto `8080` tanto en el contenedor como en el host, se utiliza el siguiente comando:
+
+`docker run -d --name spring-boot -p 8080:8080 spring-boot`.
+
+## 2. Creación de una Red Interna para los Contenedores
+
+Para permitir que los contenedores se comuniquen entre sí de manera segura, creamos una red interna de Docker. `sudo docker network create red-book-spring`
+Ahora verificamos las redes creadas en Docker con el siguiente comando: `sudo docker network ls`. 
+Luego lanzamos ambos contenedores dentro de una red interna llamada `red-book-spring`. Esto permite que los contenedores se comuniquen entre sí sin necesidad de exponer sus puertos públicamente, utilizando los siguientes comandos: `sudo docker run -d --name spring --network red-book-spring -p 8080:8080 spring-boot` y `sudo docker run -d --name react --network red-book-spring -p 90:80 react`. 
+Con estas configuraciones, los contenedores de Spring Boot y React estarán conectados a la red `red-book-spring` y podrán comunicarse entre sí dentro de la red interna, sin necesidad de exponer puertos adicionales al exterior.
+
+## 3. Comprobación de la Configuración
+
+Para revisar de que todo está configurado correctamente y los contenedores están funcionando, podemos utilizar los siguientes comandos: `sudo docker ps` para verificar que los contenedores están en ejecución, y `sudo docker network inspect red-book-spring` para verificar la conexión de los contenedores a la red. Con estos pasos, los contenedores de Spring Boot y React estarán ejecutándose correctamente y podrán comunicarse entre sí dentro de la red interna.
+
 
