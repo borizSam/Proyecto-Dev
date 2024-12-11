@@ -181,8 +181,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#características-clave" id="toc-características-clave" class="nav-link active" data-scroll-target="#características-clave">Características clave</a></li>
+  <li><a href="#jenkins-cicd-pipeline-for-spring-boot-application" id="toc-jenkins-cicd-pipeline-for-spring-boot-application" class="nav-link" data-scroll-target="#jenkins-cicd-pipeline-for-spring-boot-application">Jenkins CI/CD Pipeline for Spring Boot Application</a>
+  <ul class="collapse">
+  <li><a href="#descargar-la-imagen-de-docker-de-jenkins" id="toc-descargar-la-imagen-de-docker-de-jenkins" class="nav-link" data-scroll-target="#descargar-la-imagen-de-docker-de-jenkins">1. Descargar la Imagen de Docker de Jenkins</a></li>
+  <li><a href="#crear-cuenta-e-inicio-inicial" id="toc-crear-cuenta-e-inicio-inicial" class="nav-link" data-scroll-target="#crear-cuenta-e-inicio-inicial">2. Crear Cuenta e Inicio Inicial</a></li>
+  <li><a href="#instalar-plugins-basicós-en-nuestro-jenkins" id="toc-instalar-plugins-basicós-en-nuestro-jenkins" class="nav-link" data-scroll-target="#instalar-plugins-basicós-en-nuestro-jenkins">3. Instalar plugins basicós en nuestro jenkins:</a></li>
+  <li><a href="#creamos-nuestro-pipeline" id="toc-creamos-nuestro-pipeline" class="nav-link" data-scroll-target="#creamos-nuestro-pipeline">4. Creamos nuestro pipeline:</a></li>
+  <li><a href="#docker-in-docker" id="toc-docker-in-docker" class="nav-link" data-scroll-target="#docker-in-docker">Docker-in-Docker:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -212,14 +226,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://drive.google.com/file/d/1Ax4MjoQ9ul8mb8AV4OHHR1i4ZXqYJCn1/view%22Representación%20gráfica%20de%20Docker%22.png" class="img-fluid figure-img"></p>
-<figcaption>Diagrama de Docker</figcaption>
-</figure>
-</div>
+<p>Jenkins es una herramienta de automatización de código abierto que utilizo principalmente para <strong>Integración Continua (CI)</strong> y <strong>Entrega Continua/Despliegue Continuo (CD)</strong>. Me ayuda a compilar, probar y desplegar software de manera eficiente.</p>
+<section id="características-clave" class="level2">
+<h2 class="anchored" data-anchor-id="características-clave">Características clave</h2>
+<ul>
+<li><strong>Plugins:</strong> Es altamente extensible con más de 1800 plugins, lo que me permite adaptarlo a mis necesidades.</li>
+<li><strong>Pipeline as Code:</strong> Puedo definir pipelines usando archivos como <code>Jenkinsfile</code>, lo que facilita la gestión del flujo de trabajo.</li>
+<li><strong>Compatibilidad:</strong> Funciona con múltiples sistemas operativos y herramientas de desarrollo que uso habitualmente.</li>
+<li><strong>Automatización:</strong> Me permite programar y ejecutar automáticamente tareas repetitivas, ahorrándome tiempo.</li>
+</ul>
+</section>
+<section id="jenkins-cicd-pipeline-for-spring-boot-application" class="level1">
+<h1>Jenkins CI/CD Pipeline for Spring Boot Application</h1>
+<section id="descargar-la-imagen-de-docker-de-jenkins" class="level2">
+<h2 class="anchored" data-anchor-id="descargar-la-imagen-de-docker-de-jenkins">1. Descargar la Imagen de Docker de Jenkins</h2>
+<p>Descargamos la imagen oficial de Jenkins desde DockerHub:</p>
+<p>boris@Dev-Final:~/Jenkins$ sudo docker pull jenkins/jenkins:lts</p>
+<p>Ahora ejecutamos lanzamos el contenedor importante revisar los volumenes y tambien el permiso de jenkins –privileged por que ejecutara un contenedor.</p>
+<p>boris@Dev-Final:~/Jenkins$ sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
+</section>
+<section id="crear-cuenta-e-inicio-inicial" class="level2">
+<h2 class="anchored" data-anchor-id="crear-cuenta-e-inicio-inicial">2. Crear Cuenta e Inicio Inicial</h2>
+<p>Una vez lanzado el contenedor de jenkins realizamos la instalación antes cogemos la contraseña inicial: boris@Dev-Final:~/Jenkins$ sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword importante ponerle un nombre a nuestro contenedor que luego nos asigna uno random.</p>
+<pre><code>1. Accede a Jenkins a través de `http://localhost:8080`.
+2. Recupera la contraseña inicial de administrador:
+    sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword
+3. Sigue el asistente de configuración:
+    - Instala los complementos sugeridos o selecciona complementos específicos.
+    - Crea una cuenta de administrador.
+4. Completa la configuración y accede al panel de control de Jenkins.</code></pre>
+</section>
+<section id="instalar-plugins-basicós-en-nuestro-jenkins" class="level2">
+<h2 class="anchored" data-anchor-id="instalar-plugins-basicós-en-nuestro-jenkins">3. Instalar plugins basicós en nuestro jenkins:</h2>
+<pre><code>Vamos a Jenkins y instalamos los plugins necesarios.
+
+- Integración con Maven
+- Git
+- Estibador
+- SSH
+- Escáner SonarQube
+Por otra parte tambien instalamos el JKD y maven y Docker ya que para nuestro srping-boot nos sera necesario.</code></pre>
+</section>
+<section id="creamos-nuestro-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="creamos-nuestro-pipeline">4. Creamos nuestro pipeline:</h2>
+<pre><code>Definimos nuestras tools docker git, maven y java importante revisar las versiones con las que se va atrabajar en este caso el springboot trabaja con JDK21 y Maven.</code></pre>
+</section>
+<section id="docker-in-docker" class="level2">
+<h2 class="anchored" data-anchor-id="docker-in-docker">Docker-in-Docker:</h2>
+<p>docker run -d –name jenkinsDinD –privileged -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
+<p>sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
