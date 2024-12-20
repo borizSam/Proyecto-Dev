@@ -13,7 +13,7 @@ MODIFICAR LA DOCUMENTACIÓN
 
 Con un enfoque en la versatilidad, Quarto admite múltiples formatos de salida y proporciona herramientas avanzadas para **automatización**,**control de versiones** y **personalización de contenido**.
 
-## Principales Conceptos Relacionados
+## Principales Conceptos
 
 ### **Engine (Motor)** 
 
@@ -26,25 +26,116 @@ Quarto utiliza **Markdown extendido** para estructurar y formatear contenido. Me
 
 ### **Publish (Publicación)** 
 
-La publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como **GitHub Pages**, servidores de **Shiny**, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.
+La publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como **GitHub Pages**. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.
 
 ### **Git** 
  
  Quarto se integra perfectamente con **Git**, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones. 
 
-## Automatización en Quarto 
-
-La **automatización** es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como: 
-
-    - Regeneración de informes. 
-    - Actualización automática de gráficos. 
-    - Despliegue de contenido en línea. 
-
-Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente.
-
 # Manual de instalacion de Quarto
 
-Proximamente ... 
+1-. En VS code instalamos la extensión de Quarto.
 
-# Manual de automatización con gitpages y crear workflows
-Proximamente ... 
+![Quarto](https://albertprofe.dev/images/markup/quartoextension.png)
+
+2-. Para crear un nuevo proyecto de sitio web dentro de VS Code, ejecutar el Quarto: Create Project comando desde la paleta de comandos (CTRL + SHRIFT + P).
+
+```bash
+1-.  >Quarto create Project -->Enter
+2-.  Website Project
+```
+![Quarto](https://quarto.org/docs/websites/images/vscode-create-project-command.png)
+
+3-. Quarto: Seleccionamos el website y el directorio
+
+![Quarto](https://quarto.org/docs/websites/images/vscode-create-project-website.png)
+
+4-. Con estos pasos ya tendriamos nuestro proyecto de Quarto creado, el archivo de configuración estara en _quarto.yml.
+
+![Quarto](https://quarto.org/docs/websites/images/vscode-create-project-render.png)
+
+# Instalamos la CLI de Quarto en Ubuntu
+
+1-. Descargamos el paquete de la CLI desde la pagina oficial de [Quarto](https://quarto.org/docs/get-started/)
+
+```bash 
+- Navegamos hasta donde tenemos la descarga de nuesto paquete y ejecutamos los siguientes comandos:
+sudo dpkg -i quarto-1.6.0-linux-amd64.deb
+sudo apt --fix-broken install
+- Una vez tengamos la CLI de Quarto instalada podemos verificar la version de la CLI de Quarto con el siguiente comando:
+quarto --version
+```
+# Publicación de Quarto con Gh-Pages
+GitHub Pages es un servicio de alojamiento de sitios web que permite publicar contenido basado en código fuente administrado dentro de un repositorio de GitHub .
+quarto publish Realizaré varias operaciones con GitHub Pages :
+Lo más importante para nosotros será hacer una rama gh-pages,
+la primera vez donde se desplegará el HTML de salida con quarto publish gh-pages.
+
+Antes de subir nuestro Quarto a git, ponemos en el gitignore las carpetas que ignoraremos:
+
+```bash
+## .gitignore
+
+/.quarto/
+/_site/
+```
+Ahora para publicar nuestro proyecto con gh-pages ejecutamos el siguiente comando, importante antes haber creado la rama de 
+
+```bash
+## Terminal
+
+quarto publish gh-pages
+```
+Despues de publicar la primera vez con gh-pages no sera necesario volver a publicarlo otra vez:
+```bash
+##Terminal
+
+quarto publish 
+```
+El sitio web Quarto publicado con github tendra el siguiente link:
+```bash
+Your site is live at https://borizsam.github.io/RoadMapDevOps/
+```
+# Automatización de la publicación de documentación de Quarto con GitHub Actions
+
+Para realizar la automatización de nuestro Quarto Project utilizamos Github Actions, crearemos un workflow para que haga la publicación de nuestro quarto.
+
+Primero tenemos creamos la carpeta donde estara nuestros workflows la carpeta se debe crear dentro de nuestra carpeta de /.github.
+
+> **Nota**: Para poder visualizar nuestra carpeta .github, debemos tener activado poder ver las carpetas ocultas.
+
+Creamos la carpeta workflows dentro de nuestra carpeta de .github --> **/.github/workflows/publish.yml**
+dentro de workflows tendremos un fichero yml que nos automatizara la publicación de nuestro Quarto en este caso tendra la siguiente estructura.
+
+```bash
+on:
+  workflow_dispatch: # Permite disparar el flujo manualmente
+  push:
+    branches: main   # Ejecuta cuando hay un push a la rama main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest      # Define el entorno en Ubuntu más reciente
+    permissions:
+      contents: write           # Permiso para escribir en el repositorio (necesario para push)
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4       # Hacer checkout del repositorio
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2    # Instalar Quarto en el entorno
+
+      - name: Render and Publish                     # Acción de publicación de Quarto
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages                           # Define que el destino es la rama gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     # Token para autenticación
+
+```
+
+- El flujo de trabajo se activa con un push a la rama main o manualmente.
+- Realiza tres pasos: checkout del repositorio, configura Quarto, y renderiza y publica el contenido generado en la rama gh-pages.
+- Usa el GITHUB_TOKEN para realizar el push de manera segura.

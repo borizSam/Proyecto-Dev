@@ -62,6 +62,35 @@ Al trabajar con Git y GitHub, es importante seguir algunas buenas prácticas:
 - Escribir **mensajes de commit claros** que expliquen qué cambios se hicieron.
 - Mantener las **ramas organizadas** y nombrarlas de manera descriptiva.
 
-## Conclusión
+## Instalacion de la CLI de Git y GH
 
-GitHub no es solo un lugar donde almaceno código. Es una herramienta poderosa que me permite colaborar con otros, automatizar tareas y organizar el desarrollo de mis proyectos de manera más eficiente. Aprovechando todas sus funcionalidades y siguiendo buenas prácticas, puedo trabajar de manera más ordenada y productiva.
+Para instalar la CLI de GIT ejeutamos el siguiente comando:
+
+```bash
+sudo apt install git
+```
+## Instalacion de la CLI (GH) en debian
+
+Antes de instalar, es recomendable actualizar tu sistema para asegurarte de que todo esté al día:
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install curl
+# Agregar el repositorio de GitHub CLI
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/github-archive-keyring.gpg > /dev/null
+# Agrega el repositorio de GitHub CLI a tu lista de fuentes
+echo "deb [signed-by=/usr/share/keyrings/github-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+# Actualizar los repositorios
+sudo apt update
+sudo apt install gh
+# Revisamos la version de GH
+gh --version
+```
+Para hacer el login en GH configuramos el nombre y el mail:
+
+```bash
+git config --global user.name "Boris"
+git config --global user.email "pedro@correo.com"
+gh auth login
+```
