@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-659650fc26dc25888fc1474f317bb8ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c75bcb89907db7808f0349b764a1a524.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,17 +222,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#quarto-es-un-motor-de-publicación-de-código-abierto" id="toc-quarto-es-un-motor-de-publicación-de-código-abierto" class="nav-link active" data-scroll-target="#quarto-es-un-motor-de-publicación-de-código-abierto">Quarto: Es un motor de Publicación de Código Abierto</a>
   <ul class="collapse">
-  <li><a href="#principales-conceptos-relacionados" id="toc-principales-conceptos-relacionados" class="nav-link" data-scroll-target="#principales-conceptos-relacionados">Principales Conceptos Relacionados</a>
+  <li><a href="#principales-conceptos" id="toc-principales-conceptos" class="nav-link" data-scroll-target="#principales-conceptos">Principales Conceptos</a>
   <ul class="collapse">
   <li><a href="#engine-motor" id="toc-engine-motor" class="nav-link" data-scroll-target="#engine-motor"><strong>Engine (Motor)</strong></a></li>
   <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><strong>Markdown</strong></a></li>
   <li><a href="#publish-publicación" id="toc-publish-publicación" class="nav-link" data-scroll-target="#publish-publicación"><strong>Publish (Publicación)</strong></a></li>
   <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><strong>Git</strong></a></li>
   </ul></li>
-  <li><a href="#automatización-en-quarto" id="toc-automatización-en-quarto" class="nav-link" data-scroll-target="#automatización-en-quarto">Automatización en Quarto</a></li>
   </ul></li>
   <li><a href="#manual-de-instalacion-de-quarto" id="toc-manual-de-instalacion-de-quarto" class="nav-link" data-scroll-target="#manual-de-instalacion-de-quarto">Manual de instalacion de Quarto</a></li>
-  <li><a href="#manual-de-automatización-con-gitpages-y-crear-workflows" id="toc-manual-de-automatización-con-gitpages-y-crear-workflows" class="nav-link" data-scroll-target="#manual-de-automatización-con-gitpages-y-crear-workflows">Manual de automatización con gitpages y crear workflows</a></li>
+  <li><a href="#instalamos-la-cli-de-quarto-en-ubuntu" id="toc-instalamos-la-cli-de-quarto-en-ubuntu" class="nav-link" data-scroll-target="#instalamos-la-cli-de-quarto-en-ubuntu">Instalamos la CLI de Quarto en Ubuntu</a></li>
+  <li><a href="#publicación-de-quarto-con-gh-pages" id="toc-publicación-de-quarto-con-gh-pages" class="nav-link" data-scroll-target="#publicación-de-quarto-con-gh-pages">Publicación de Quarto con Gh-Pages</a></li>
+  <li><a href="#automatización-de-la-publicación-de-documentación-de-quarto-con-github-actions" id="toc-automatización-de-la-publicación-de-documentación-de-quarto-con-github-actions" class="nav-link" data-scroll-target="#automatización-de-la-publicación-de-documentación-de-quarto-con-github-actions">Automatización de la publicación de documentación de Quarto con GitHub Actions</a></li>
   </ul>
 </nav>
     </div>
@@ -250,8 +285,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>Quarto: Es un motor de Publicación de Código Abierto</h1>
 <p><strong>Quarto</strong> es una herramienta de publicación de código abierto diseñada para crear documentos dinámicos y reproducibles utilizando lenguajes de programación como <strong>R</strong>, <strong>Python</strong>, <strong>Julia</strong> y <strong>Observable</strong>.</p>
 <p>Con un enfoque en la versatilidad, Quarto admite múltiples formatos de salida y proporciona herramientas avanzadas para <strong>automatización</strong>,<strong>control de versiones</strong> y <strong>personalización de contenido</strong>.</p>
-<section id="principales-conceptos-relacionados" class="level2">
-<h2 class="anchored" data-anchor-id="principales-conceptos-relacionados">Principales Conceptos Relacionados</h2>
+<section id="principales-conceptos" class="level2">
+<h2 class="anchored" data-anchor-id="principales-conceptos">Principales Conceptos</h2>
 <section id="engine-motor" class="level3">
 <h3 class="anchored" data-anchor-id="engine-motor"><strong>Engine (Motor)</strong></h3>
 <p>En Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos.</p>
@@ -263,29 +298,113 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="publish-publicación" class="level3">
 <h3 class="anchored" data-anchor-id="publish-publicación"><strong>Publish (Publicación)</strong></h3>
-<p>La publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como <strong>GitHub Pages</strong>, servidores de <strong>Shiny</strong>, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.</p>
+<p>La publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como <strong>GitHub Pages</strong>. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.</p>
 </section>
 <section id="git" class="level3">
 <h3 class="anchored" data-anchor-id="git"><strong>Git</strong></h3>
 <p>Quarto se integra perfectamente con <strong>Git</strong>, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones.</p>
 </section>
 </section>
-<section id="automatización-en-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="automatización-en-quarto">Automatización en Quarto</h2>
-<p>La <strong>automatización</strong> es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:</p>
-<pre><code>- Regeneración de informes. 
-- Actualización automática de gráficos. 
-- Despliegue de contenido en línea. </code></pre>
-<p>Quarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente.</p>
-</section>
 </section>
 <section id="manual-de-instalacion-de-quarto" class="level1">
 <h1>Manual de instalacion de Quarto</h1>
-<p>Proximamente …</p>
+<p>1-. En VS code instalamos la extensión de Quarto.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://albertprofe.dev/images/markup/quartoextension.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto</figcaption>
+</figure>
+</div>
+<p>2-. Para crear un nuevo proyecto de sitio web dentro de VS Code, ejecutar el Quarto: Create Project comando desde la paleta de comandos (CTRL + SHRIFT + P).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1-.</span>  <span class="op">&gt;</span>Quarto create Project <span class="at">--</span><span class="op">&gt;</span>Enter</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2-.</span>  Website Project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://quarto.org/docs/websites/images/vscode-create-project-command.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto</figcaption>
+</figure>
+</div>
+<p>3-. Quarto: Seleccionamos el website y el directorio</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://quarto.org/docs/websites/images/vscode-create-project-website.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto</figcaption>
+</figure>
+</div>
+<p>4-. Con estos pasos ya tendriamos nuestro proyecto de Quarto creado, el archivo de configuración estara en _quarto.yml.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://quarto.org/docs/websites/images/vscode-create-project-render.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto</figcaption>
+</figure>
+</div>
 </section>
-<section id="manual-de-automatización-con-gitpages-y-crear-workflows" class="level1">
-<h1>Manual de automatización con gitpages y crear workflows</h1>
-<p>Proximamente …</p>
+<section id="instalamos-la-cli-de-quarto-en-ubuntu" class="level1">
+<h1>Instalamos la CLI de Quarto en Ubuntu</h1>
+<p>1-. Descargamos el paquete de la CLI desde la pagina oficial de <a href="https://quarto.org/docs/get-started/">Quarto</a></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Navegamos hasta donde tenemos la descarga de nuesto paquete y ejecutamos los siguientes comandos:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class="at">-i</span> quarto-1.6.0-linux-amd64.deb</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt <span class="at">--fix-broken</span> install</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Una vez tengamos la CLI de Quarto instalada podemos verificar la version de la CLI de Quarto con el siguiente comando:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="publicación-de-quarto-con-gh-pages" class="level1">
+<h1>Publicación de Quarto con Gh-Pages</h1>
+<p>GitHub Pages es un servicio de alojamiento de sitios web que permite publicar contenido basado en código fuente administrado dentro de un repositorio de GitHub . quarto publish Realizaré varias operaciones con GitHub Pages : Lo más importante para nosotros será hacer una rama gh-pages, la primera vez donde se desplegará el HTML de salida con quarto publish gh-pages.</p>
+<p>Antes de subir nuestro Quarto a git, ponemos en el gitignore las carpetas que ignoraremos:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## .gitignore</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/.quarto/</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/_site/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora para publicar nuestro proyecto con gh-pages ejecutamos el siguiente comando, importante antes haber creado la rama de</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Terminal</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Despues de publicar la primera vez con gh-pages no sera necesario volver a publicarlo otra vez:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">##Terminal</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El sitio web Quarto publicado con github tendra el siguiente link:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> site is live at https://borizsam.github.io/RoadMapDevOps/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="automatización-de-la-publicación-de-documentación-de-quarto-con-github-actions" class="level1">
+<h1>Automatización de la publicación de documentación de Quarto con GitHub Actions</h1>
+<p>Para realizar la automatización de nuestro Quarto Project utilizamos Github Actions, crearemos un workflow para que haga la publicación de nuestro quarto.</p>
+<p>Primero tenemos creamos la carpeta donde estara nuestros workflows la carpeta se debe crear dentro de nuestra carpeta de /.github.</p>
+<blockquote class="blockquote">
+<p><strong>Nota</strong>: Para poder visualizar nuestra carpeta .github, debemos tener activado poder ver las carpetas ocultas.</p>
+</blockquote>
+<p>Creamos la carpeta workflows dentro de nuestra carpeta de .github –&gt; <strong>/.github/workflows/publish.yml</strong> dentro de workflows tendremos un fichero yml que nos automatizara la publicación de nuestro Quarto en este caso tendra la siguiente estructura.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">on:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">workflow_dispatch:</span> <span class="co"># Permite disparar el flujo manualmente</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">push:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">branches:</span> main   <span class="co"># Ejecuta cuando hay un push a la rama main</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">name:</span> Quarto Publish</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">jobs:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">build-deploy:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">runs-on:</span> ubuntu-latest      <span class="co"># Define el entorno en Ubuntu más reciente</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">permissions:</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">contents:</span> write           <span class="co"># Permiso para escribir en el repositorio (necesario para push)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">steps:</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> name: Check out repository</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="ex">uses:</span> actions/checkout@v4       <span class="co"># Hacer checkout del repositorio</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> name: Set up Quarto</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="ex">uses:</span> quarto-dev/quarto-actions/setup@v2    <span class="co"># Instalar Quarto en el entorno</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> name: Render and Publish                     <span class="co"># Acción de publicación de Quarto</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="ex">uses:</span> quarto-dev/quarto-actions/publish@v2</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="ex">with:</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>          <span class="ex">target:</span> gh-pages                           <span class="co"># Define que el destino es la rama gh-pages</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="ex">env:</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>          <span class="ex">GITHUB_TOKEN:</span> <span class="va">${</span><span class="er">{ secrets.GITHUB_TOKEN </span><span class="va">}</span>}     <span class="co"># Token para autenticación</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>El flujo de trabajo se activa con un push a la rama main o manualmente.</li>
+<li>Realiza tres pasos: checkout del repositorio, configura Quarto, y renderiza y publica el contenido generado en la rama gh-pages.</li>
+<li>Usa el GITHUB_TOKEN para realizar el push de manera segura.</li>
+</ul>
 
 
 </section>

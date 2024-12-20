@@ -1,31 +1,94 @@
 [
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Ficha de Contacto",
+    "objectID": "amazon.html",
+    "href": "amazon.html",
+    "title": "AWS",
     "section": "",
-    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
+    "text": "TEST"
   },
   {
-    "objectID": "contact.html#información-personal",
-    "href": "contact.html#información-personal",
-    "title": "Ficha de Contacto",
+    "objectID": "indexgit.html",
+    "href": "indexgit.html",
+    "title": "GitHub",
     "section": "",
-    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
+    "text": "MODIFICAR LA DOCUMENTACIÓN\nGitHub es un espacio en línea donde puedo almacenar mis proyectos (repositorios), compartirlos con otras personas y colaborar. Utiliza Git para gestionar los cambios en el código, lo que me permite trabajar junto con otros desarrolladores sin interferir en su trabajo."
   },
   {
-    "objectID": "contact.html#redes-sociales",
-    "href": "contact.html#redes-sociales",
-    "title": "Ficha de Contacto",
-    "section": "Redes Sociales",
-    "text": "Redes Sociales\nConéctame a través de mis redes sociales:\n\nLinkedIn 👔\nGitHub 🐦"
+    "objectID": "indexgit.html#qué-es-github",
+    "href": "indexgit.html#qué-es-github",
+    "title": "GitHub",
+    "section": "¿Qué es GitHub?",
+    "text": "¿Qué es GitHub?\nGitHub es una plataforma en línea que me permite guardar mis proyectos, trabajar en equipo y hacer un seguimiento de todos los cambios que se hacen en el código. Está basado en Git, un sistema de control de versiones que me ayuda a gestionar todo el historial de cambios, facilitando la colaboración sin que los errores o conflictos se presenten entre los miembros del equipo."
   },
   {
-    "objectID": "contact.html#enviar-un-mensaje",
-    "href": "contact.html#enviar-un-mensaje",
-    "title": "Ficha de Contacto",
-    "section": "Enviar un Mensaje",
-    "text": "Enviar un Mensaje\nSi prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:\nEmail: (dadapunk456@gmail.com) ✉️\n¡Saludos!"
+    "objectID": "indexgit.html#comandos-básicos-de-git",
+    "href": "indexgit.html#comandos-básicos-de-git",
+    "title": "GitHub",
+    "section": "Comandos Básicos de Git",
+    "text": "Comandos Básicos de Git\nEstos son algunos de los comandos más importantes que uso para trabajar con Git y GitHub:\n\ngit init: Inicia un nuevo repositorio Git en mi directorio.\ngit status: Muestra el estado de los archivos, es decir, qué archivos se han modificado o agregado.\ngit add .: Agrega todos los archivos modificados para prepararlos antes de hacer un commit.\ngit commit -m \"Mensaje\": Guarda los cambios que he hecho en el repositorio con un mensaje explicativo.\ngit push: Sube los cambios que he hecho localmente al repositorio remoto en GitHub."
+  },
+  {
+    "objectID": "indexgit.html#ramas-branches",
+    "href": "indexgit.html#ramas-branches",
+    "title": "GitHub",
+    "section": "Ramas (Branches)",
+    "text": "Ramas (Branches)\nGitHub me permite trabajar con ramas, que son versiones separadas del proyecto donde puedo hacer cambios sin afectar el trabajo principal (la rama main o master). Luego, puedo fusionar las ramas cuando los cambios estén listos.\n\ngit branch: Muestra las ramas que tengo en el repositorio.\ngit switch &lt;nombre_rama&gt;: Cambio de una rama a otra.\ngit merge &lt;nombre_rama&gt;: Fusiona los cambios de una rama a la actual."
+  },
+  {
+    "objectID": "indexgit.html#colaboración-en-github",
+    "href": "indexgit.html#colaboración-en-github",
+    "title": "GitHub",
+    "section": "Colaboración en GitHub",
+    "text": "Colaboración en GitHub\nGitHub está diseñado para que pueda colaborar fácilmente con otros desarrolladores. Algunas herramientas importantes para la colaboración son:\n\nPull Requests (PR): Cuando hago cambios en una rama y quiero integrarlos con la rama principal, creo un pull request. Otras personas pueden revisar y comentar mis cambios antes de fusionarlos.\nIssues: Puedo usar los issues para crear tareas, rastrear errores o sugerir nuevas funcionalidades para el proyecto."
+  },
+  {
+    "objectID": "indexgit.html#fork-y-pull-request",
+    "href": "indexgit.html#fork-y-pull-request",
+    "title": "GitHub",
+    "section": "Fork y Pull Request",
+    "text": "Fork y Pull Request\nSi quiero contribuir a proyectos de código abierto, puedo seguir este flujo:\n\nFork: Hago una copia del repositorio para poder modificarlo.\nPull Request: Después de hacer mis cambios, envío un pull request para que los encargados del proyecto revisen y fusionen mis modificaciones."
+  },
+  {
+    "objectID": "indexgit.html#github-actions",
+    "href": "indexgit.html#github-actions",
+    "title": "GitHub",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions\nGitHub Actions me permite automatizar tareas como pruebas, compilación y despliegue. Puedo crear flujos de trabajo automáticos que se ejecutan en eventos específicos, como cuando subo nuevos cambios al repositorio."
+  },
+  {
+    "objectID": "indexgit.html#seguridad-y-permisos",
+    "href": "indexgit.html#seguridad-y-permisos",
+    "title": "GitHub",
+    "section": "Seguridad y Permisos",
+    "text": "Seguridad y Permisos\nEn GitHub, puedo gestionar quién puede ver o modificar mis repositorios:\n\nPermisos de Repositorio: Puedo establecer quién tiene acceso para ver, editar o contribuir en mi proyecto.\nBranch Protection Rules: Puedo proteger ciertas ramas para asegurarme de que los cambios solo se hagan después de pasar revisiones o pruebas."
+  },
+  {
+    "objectID": "indexgit.html#buenas-prácticas",
+    "href": "indexgit.html#buenas-prácticas",
+    "title": "GitHub",
+    "section": "Buenas Prácticas",
+    "text": "Buenas Prácticas\nAl trabajar con Git y GitHub, es importante seguir algunas buenas prácticas:\n\nHacer commits pequeños y frecuentes para evitar conflictos.\nEscribir mensajes de commit claros que expliquen qué cambios se hicieron.\nMantener las ramas organizadas y nombrarlas de manera descriptiva."
+  },
+  {
+    "objectID": "indexgit.html#instalacion-de-la-cli-de-git-y-gh",
+    "href": "indexgit.html#instalacion-de-la-cli-de-git-y-gh",
+    "title": "GitHub",
+    "section": "Instalacion de la CLI de Git y GH",
+    "text": "Instalacion de la CLI de Git y GH\nPara instalar la CLI de GIT ejeutamos el siguiente comando:\nsudo apt install git"
+  },
+  {
+    "objectID": "indexgit.html#instalacion-de-la-cli-gh-en-debian",
+    "href": "indexgit.html#instalacion-de-la-cli-gh-en-debian",
+    "title": "GitHub",
+    "section": "Instalacion de la CLI (GH) en debian",
+    "text": "Instalacion de la CLI (GH) en debian\nAntes de instalar, es recomendable actualizar tu sistema para asegurarte de que todo esté al día:\nsudo apt update\nsudo apt upgrade\nsudo apt install curl\n# Agregar el repositorio de GitHub CLI\ncurl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/github-archive-keyring.gpg &gt; /dev/null\n# Agrega el repositorio de GitHub CLI a tu lista de fuentes\necho \"deb [signed-by=/usr/share/keyrings/github-archive-keyring.gpg] https://cli.github.com/packages stable main\" | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null\n# Actualizar los repositorios\nsudo apt update\nsudo apt install gh\n# Revisamos la version de GH\ngh --version\nPara hacer el login en GH configuramos el nombre y el mail:\ngit config --global user.name \"Boris\"\ngit config --global user.email \"pedro@correo.com\"\ngh auth login"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Espacio reservado"
   },
   {
     "objectID": "docker.html",
@@ -196,83 +259,6 @@
     "text": "Integración exitosa de Docker dentro del pipeline\n\nPaso 1: Ejecutar la pipeline\nValidamos que el pipeline se ejecuta correctamente con Docker integrado, permitiendo la construcción y despliegue de contenedores directamente desde Jenkins."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Espacio reservado"
-  },
-  {
-    "objectID": "indexgit.html",
-    "href": "indexgit.html",
-    "title": "GitHub",
-    "section": "",
-    "text": "MODIFICAR LA DOCUMENTACIÓN\nGitHub es un espacio en línea donde puedo almacenar mis proyectos (repositorios), compartirlos con otras personas y colaborar. Utiliza Git para gestionar los cambios en el código, lo que me permite trabajar junto con otros desarrolladores sin interferir en su trabajo."
-  },
-  {
-    "objectID": "indexgit.html#qué-es-github",
-    "href": "indexgit.html#qué-es-github",
-    "title": "GitHub",
-    "section": "¿Qué es GitHub?",
-    "text": "¿Qué es GitHub?\nGitHub es una plataforma en línea que me permite guardar mis proyectos, trabajar en equipo y hacer un seguimiento de todos los cambios que se hacen en el código. Está basado en Git, un sistema de control de versiones que me ayuda a gestionar todo el historial de cambios, facilitando la colaboración sin que los errores o conflictos se presenten entre los miembros del equipo."
-  },
-  {
-    "objectID": "indexgit.html#comandos-básicos-de-git",
-    "href": "indexgit.html#comandos-básicos-de-git",
-    "title": "GitHub",
-    "section": "Comandos Básicos de Git",
-    "text": "Comandos Básicos de Git\nEstos son algunos de los comandos más importantes que uso para trabajar con Git y GitHub:\n\ngit init: Inicia un nuevo repositorio Git en mi directorio.\ngit status: Muestra el estado de los archivos, es decir, qué archivos se han modificado o agregado.\ngit add .: Agrega todos los archivos modificados para prepararlos antes de hacer un commit.\ngit commit -m \"Mensaje\": Guarda los cambios que he hecho en el repositorio con un mensaje explicativo.\ngit push: Sube los cambios que he hecho localmente al repositorio remoto en GitHub."
-  },
-  {
-    "objectID": "indexgit.html#ramas-branches",
-    "href": "indexgit.html#ramas-branches",
-    "title": "GitHub",
-    "section": "Ramas (Branches)",
-    "text": "Ramas (Branches)\nGitHub me permite trabajar con ramas, que son versiones separadas del proyecto donde puedo hacer cambios sin afectar el trabajo principal (la rama main o master). Luego, puedo fusionar las ramas cuando los cambios estén listos.\n\ngit branch: Muestra las ramas que tengo en el repositorio.\ngit switch &lt;nombre_rama&gt;: Cambio de una rama a otra.\ngit merge &lt;nombre_rama&gt;: Fusiona los cambios de una rama a la actual."
-  },
-  {
-    "objectID": "indexgit.html#colaboración-en-github",
-    "href": "indexgit.html#colaboración-en-github",
-    "title": "GitHub",
-    "section": "Colaboración en GitHub",
-    "text": "Colaboración en GitHub\nGitHub está diseñado para que pueda colaborar fácilmente con otros desarrolladores. Algunas herramientas importantes para la colaboración son:\n\nPull Requests (PR): Cuando hago cambios en una rama y quiero integrarlos con la rama principal, creo un pull request. Otras personas pueden revisar y comentar mis cambios antes de fusionarlos.\nIssues: Puedo usar los issues para crear tareas, rastrear errores o sugerir nuevas funcionalidades para el proyecto."
-  },
-  {
-    "objectID": "indexgit.html#fork-y-pull-request",
-    "href": "indexgit.html#fork-y-pull-request",
-    "title": "GitHub",
-    "section": "Fork y Pull Request",
-    "text": "Fork y Pull Request\nSi quiero contribuir a proyectos de código abierto, puedo seguir este flujo:\n\nFork: Hago una copia del repositorio para poder modificarlo.\nPull Request: Después de hacer mis cambios, envío un pull request para que los encargados del proyecto revisen y fusionen mis modificaciones."
-  },
-  {
-    "objectID": "indexgit.html#github-actions",
-    "href": "indexgit.html#github-actions",
-    "title": "GitHub",
-    "section": "GitHub Actions",
-    "text": "GitHub Actions\nGitHub Actions me permite automatizar tareas como pruebas, compilación y despliegue. Puedo crear flujos de trabajo automáticos que se ejecutan en eventos específicos, como cuando subo nuevos cambios al repositorio."
-  },
-  {
-    "objectID": "indexgit.html#seguridad-y-permisos",
-    "href": "indexgit.html#seguridad-y-permisos",
-    "title": "GitHub",
-    "section": "Seguridad y Permisos",
-    "text": "Seguridad y Permisos\nEn GitHub, puedo gestionar quién puede ver o modificar mis repositorios:\n\nPermisos de Repositorio: Puedo establecer quién tiene acceso para ver, editar o contribuir en mi proyecto.\nBranch Protection Rules: Puedo proteger ciertas ramas para asegurarme de que los cambios solo se hagan después de pasar revisiones o pruebas."
-  },
-  {
-    "objectID": "indexgit.html#buenas-prácticas",
-    "href": "indexgit.html#buenas-prácticas",
-    "title": "GitHub",
-    "section": "Buenas Prácticas",
-    "text": "Buenas Prácticas\nAl trabajar con Git y GitHub, es importante seguir algunas buenas prácticas:\n\nHacer commits pequeños y frecuentes para evitar conflictos.\nEscribir mensajes de commit claros que expliquen qué cambios se hicieron.\nMantener las ramas organizadas y nombrarlas de manera descriptiva."
-  },
-  {
-    "objectID": "indexgit.html#conclusión",
-    "href": "indexgit.html#conclusión",
-    "title": "GitHub",
-    "section": "Conclusión",
-    "text": "Conclusión\nGitHub no es solo un lugar donde almaceno código. Es una herramienta poderosa que me permite colaborar con otros, automatizar tareas y organizar el desarrollo de mis proyectos de manera más eficiente. Aprovechando todas sus funcionalidades y siguiendo buenas prácticas, puedo trabajar de manera más ordenada y productiva."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Quarto",
@@ -280,17 +266,38 @@
     "text": "MODIFICAR LA DOCUMENTACIÓN"
   },
   {
-    "objectID": "index.html#principales-conceptos-relacionados",
-    "href": "index.html#principales-conceptos-relacionados",
+    "objectID": "index.html#principales-conceptos",
+    "href": "index.html#principales-conceptos",
     "title": "Quarto",
-    "section": "Principales Conceptos Relacionados",
-    "text": "Principales Conceptos Relacionados\n\nEngine (Motor)\nEn Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos.\nGracias a su compatibilidad con lenguajes como R, Python y Julia, permite integrar código que genera resultados automáticamente en documentos dinámicos.\n\n\nMarkdown\nQuarto utiliza Markdown extendido para estructurar y formatear contenido. Mediante bloques y etiquetas específicas, los usuarios pueden combinar texto enriquecido, código y elementos interactivos en un solo archivo. Este archivo puede compilarse en formatos como PDF, HTML o presentaciones, adaptándose a diferentes necesidades.\n\n\nPublish (Publicación)\nLa publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como GitHub Pages, servidores de Shiny, o sistemas académicos. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.\n\n\nGit\nQuarto se integra perfectamente con Git, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones."
+    "section": "Principales Conceptos",
+    "text": "Principales Conceptos\n\nEngine (Motor)\nEn Quarto, un engine es el motor que interpreta y ejecuta el código dentro de los documentos.\nGracias a su compatibilidad con lenguajes como R, Python y Julia, permite integrar código que genera resultados automáticamente en documentos dinámicos.\n\n\nMarkdown\nQuarto utiliza Markdown extendido para estructurar y formatear contenido. Mediante bloques y etiquetas específicas, los usuarios pueden combinar texto enriquecido, código y elementos interactivos en un solo archivo. Este archivo puede compilarse en formatos como PDF, HTML o presentaciones, adaptándose a diferentes necesidades.\n\n\nPublish (Publicación)\nLa publicación en Quarto consiste en compilar documentos o proyectos completos en un formato final. Esto incluye opciones para desplegar contenido en plataformas como GitHub Pages. Además, Quarto facilita la automatización del proceso de publicación, reduciendo esfuerzos manuales.\n\n\nGit\nQuarto se integra perfectamente con Git, ofreciendo funcionalidades para colaborar en proyectos, rastrear cambios y desplegar contenido actualizado en plataformas como GitHub. Esta integración mejora el trabajo en equipo y asegura un control detallado de versiones."
   },
   {
-    "objectID": "index.html#automatización-en-quarto",
-    "href": "index.html#automatización-en-quarto",
-    "title": "Quarto",
-    "section": "Automatización en Quarto",
-    "text": "Automatización en Quarto\nLa automatización es uno de los pilares de Quarto. Permite ejecutar tareas recurrentes como:\n- Regeneración de informes. \n- Actualización automática de gráficos. \n- Despliegue de contenido en línea. \nQuarto es una solución poderosa que busca combinar análisis, visualización y publicación de datos en un solo entorno dinámico y eficiente."
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Ficha de Contacto",
+    "section": "",
+    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
+  },
+  {
+    "objectID": "contact.html#información-personal",
+    "href": "contact.html#información-personal",
+    "title": "Ficha de Contacto",
+    "section": "",
+    "text": "Nombre: Boris Ivan\nCorreo Electrónico: (dadapunk456@gmail.com) ✉️\nDirección: Barcelona,Barcelona 📍"
+  },
+  {
+    "objectID": "contact.html#redes-sociales",
+    "href": "contact.html#redes-sociales",
+    "title": "Ficha de Contacto",
+    "section": "Redes Sociales",
+    "text": "Redes Sociales\nConéctame a través de mis redes sociales:\n\nLinkedIn 👔\nGitHub 🐦"
+  },
+  {
+    "objectID": "contact.html#enviar-un-mensaje",
+    "href": "contact.html#enviar-un-mensaje",
+    "title": "Ficha de Contacto",
+    "section": "Enviar un Mensaje",
+    "text": "Enviar un Mensaje\nSi prefieres, también puedes enviarme un mensaje directamente a través del siguiente correo:\nEmail: (dadapunk456@gmail.com) ✉️\n¡Saludos!"
   }
 ]
