@@ -8,7 +8,7 @@
 
 <meta name="author" content="Boris Ivan Huarachi Perez">
 
-<title>Jenkins – DevOps</title>
+<title>DevOps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -215,45 +181,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#características-clave" id="toc-características-clave" class="nav-link active" data-scroll-target="#características-clave">Características clave</a></li>
-  <li><a href="#jenkins-cicd-pipeline-for-spring-boot-application" id="toc-jenkins-cicd-pipeline-for-spring-boot-application" class="nav-link" data-scroll-target="#jenkins-cicd-pipeline-for-spring-boot-application">Jenkins CI/CD Pipeline for Spring Boot Application</a>
-  <ul class="collapse">
-  <li><a href="#descargar-la-imagen-de-docker-de-jenkins" id="toc-descargar-la-imagen-de-docker-de-jenkins" class="nav-link" data-scroll-target="#descargar-la-imagen-de-docker-de-jenkins">1. Descargar la Imagen de Docker de Jenkins</a></li>
-  <li><a href="#crear-cuenta-e-inicio-inicial" id="toc-crear-cuenta-e-inicio-inicial" class="nav-link" data-scroll-target="#crear-cuenta-e-inicio-inicial">2. Crear Cuenta e Inicio Inicial</a></li>
-  <li><a href="#instalar-plugins-basicós-en-nuestro-jenkins" id="toc-instalar-plugins-basicós-en-nuestro-jenkins" class="nav-link" data-scroll-target="#instalar-plugins-basicós-en-nuestro-jenkins">3. Instalar plugins basicós en nuestro jenkins:</a></li>
-  <li><a href="#creamos-nuestro-pipeline" id="toc-creamos-nuestro-pipeline" class="nav-link" data-scroll-target="#creamos-nuestro-pipeline">4. Creamos nuestro pipeline:</a></li>
-  <li><a href="#docker-in-docker" id="toc-docker-in-docker" class="nav-link" data-scroll-target="#docker-in-docker">Docker-in-Docker:</a></li>
-  <li><a href="#configuración-exitosa-de-jenkins-en-docker" id="toc-configuración-exitosa-de-jenkins-en-docker" class="nav-link" data-scroll-target="#configuración-exitosa-de-jenkins-en-docker">Configuración exitosa de Jenkins en Docker</a>
-  <ul class="collapse">
-  <li><a href="#paso-1-descargar-la-imagen-de-jenkins" id="toc-paso-1-descargar-la-imagen-de-jenkins" class="nav-link" data-scroll-target="#paso-1-descargar-la-imagen-de-jenkins">Paso 1: Descargar la imagen de Jenkins</a></li>
-  <li><a href="#paso-2-ejecutar-el-contenedor-de-jenkins" id="toc-paso-2-ejecutar-el-contenedor-de-jenkins" class="nav-link" data-scroll-target="#paso-2-ejecutar-el-contenedor-de-jenkins">Paso 2: Ejecutar el contenedor de Jenkins</a></li>
-  <li><a href="#paso-3-instalar-docker-dentro-del-contenedor-de-jenkins" id="toc-paso-3-instalar-docker-dentro-del-contenedor-de-jenkins" class="nav-link" data-scroll-target="#paso-3-instalar-docker-dentro-del-contenedor-de-jenkins">Paso 3: Instalar Docker dentro del contenedor de Jenkins</a></li>
-  <li><a href="#paso-4-configurar-permisos-para-jenkins" id="toc-paso-4-configurar-permisos-para-jenkins" class="nav-link" data-scroll-target="#paso-4-configurar-permisos-para-jenkins">Paso 4: Configurar permisos para Jenkins</a></li>
-  </ul></li>
-  <li><a href="#correcta-instalación-y-configuración-de-los-plugins-necesarios" id="toc-correcta-instalación-y-configuración-de-los-plugins-necesarios" class="nav-link" data-scroll-target="#correcta-instalación-y-configuración-de-los-plugins-necesarios">Correcta instalación y configuración de los plugins necesarios</a></li>
-  <li><a href="#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot" id="toc-implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot" class="nav-link" data-scroll-target="#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot">Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot</a>
-  <ul class="collapse">
-  <li><a href="#paso-1-crear-un-pipeline-en-jenkins" id="toc-paso-1-crear-un-pipeline-en-jenkins" class="nav-link" data-scroll-target="#paso-1-crear-un-pipeline-en-jenkins">Paso 1: Crear un pipeline en Jenkins</a></li>
-  </ul></li>
-  <li><a href="#integración-exitosa-de-docker-dentro-del-pipeline" id="toc-integración-exitosa-de-docker-dentro-del-pipeline" class="nav-link" data-scroll-target="#integración-exitosa-de-docker-dentro-del-pipeline">Integración exitosa de Docker dentro del pipeline</a>
-  <ul class="collapse">
-  <li><a href="#paso-1-ejecutar-la-pipeline" id="toc-paso-1-ejecutar-la-pipeline" class="nav-link" data-scroll-target="#paso-1-ejecutar-la-pipeline">Paso 1: Ejecutar la pipeline</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Jenkins</h1>
+<h1 class="title">DevOps</h1>
 </div>
 
 
@@ -276,136 +212,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Jenkins es una herramienta de automatización de código abierto que utilizo principalmente para <strong>Integración Continua (CI)</strong> y <strong>Entrega Continua/Despliegue Continuo (CD)</strong>. Me ayuda a compilar, probar y desplegar software de manera eficiente.</p>
-<section id="características-clave" class="level2">
-<h2 class="anchored" data-anchor-id="características-clave">Características clave</h2>
-<ul>
-<li><strong>Plugins:</strong> Es altamente extensible con más de 1800 plugins, lo que me permite adaptarlo a mis necesidades.</li>
-<li><strong>Pipeline as Code:</strong> Puedo definir pipelines usando archivos como <code>Jenkinsfile</code>, lo que facilita la gestión del flujo de trabajo.</li>
-<li><strong>Compatibilidad:</strong> Funciona con múltiples sistemas operativos y herramientas de desarrollo que uso habitualmente.</li>
-<li><strong>Automatización:</strong> Me permite programar y ejecutar automáticamente tareas repetitivas, ahorrándome tiempo.</li>
-</ul>
-</section>
-<section id="jenkins-cicd-pipeline-for-spring-boot-application" class="level1">
-<h1>Jenkins CI/CD Pipeline for Spring Boot Application</h1>
-<section id="descargar-la-imagen-de-docker-de-jenkins" class="level2">
-<h2 class="anchored" data-anchor-id="descargar-la-imagen-de-docker-de-jenkins">1. Descargar la Imagen de Docker de Jenkins</h2>
-<p>Descargamos la imagen oficial de Jenkins desde DockerHub:</p>
-<p>boris@Dev-Final:~/Jenkins$ sudo docker pull jenkins/jenkins:lts</p>
-<p>Ahora ejecutamos lanzamos el contenedor importante revisar los volumenes y tambien el permiso de jenkins –privileged por que ejecutara un contenedor.</p>
-<p>boris@Dev-Final:~/Jenkins$ sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
-</section>
-<section id="crear-cuenta-e-inicio-inicial" class="level2">
-<h2 class="anchored" data-anchor-id="crear-cuenta-e-inicio-inicial">2. Crear Cuenta e Inicio Inicial</h2>
-<p>Una vez lanzado el contenedor de jenkins realizamos la instalación antes cogemos la contraseña inicial: boris@Dev-Final:~/Jenkins$ sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword importante ponerle un nombre a nuestro contenedor que luego nos asigna uno random.</p>
-<pre><code>1. Accede a Jenkins a través de `http://localhost:8080`.
-2. Recupera la contraseña inicial de administrador:
-    sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword
-3. Sigue el asistente de configuración:
-    - Instala los complementos sugeridos o selecciona complementos específicos.
-    - Crea una cuenta de administrador.
-4. Completa la configuración y accede al panel de control de Jenkins.</code></pre>
-</section>
-<section id="instalar-plugins-basicós-en-nuestro-jenkins" class="level2">
-<h2 class="anchored" data-anchor-id="instalar-plugins-basicós-en-nuestro-jenkins">3. Instalar plugins basicós en nuestro jenkins:</h2>
-<pre><code>Vamos a Jenkins y instalamos los plugins necesarios.
-
-- Integración con Maven
-- Git
-- Estibador
-- SSH
-- Escáner SonarQube
-Por otra parte tambien instalamos el JKD y maven y Docker ya que para nuestro srping-boot nos sera necesario.</code></pre>
-</section>
-<section id="creamos-nuestro-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="creamos-nuestro-pipeline">4. Creamos nuestro pipeline:</h2>
-<pre><code>Definimos nuestras tools docker git, maven y java importante revisar las versiones con las que se va atrabajar en este caso el springboot trabaja con JDK21 y Maven.</code></pre>
-</section>
-<section id="docker-in-docker" class="level2">
-<h2 class="anchored" data-anchor-id="docker-in-docker">Docker-in-Docker:</h2>
-<p>docker run -d –name jenkinsDinD –privileged -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
-<p>sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts</p>
-</section>
-<section id="configuración-exitosa-de-jenkins-en-docker" class="level2">
-<h2 class="anchored" data-anchor-id="configuración-exitosa-de-jenkins-en-docker">Configuración exitosa de Jenkins en Docker</h2>
-<section id="paso-1-descargar-la-imagen-de-jenkins" class="level3">
-<h3 class="anchored" data-anchor-id="paso-1-descargar-la-imagen-de-jenkins">Paso 1: Descargar la imagen de Jenkins</h3>
-<p>Primero, descargamos la imagen oficial de Jenkins desde Docker Hub. Esto garantiza que estamos utilizando la versión más reciente y estable de Jenkins.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker pull jenkins/jenkins:lts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="paso-2-ejecutar-el-contenedor-de-jenkins" class="level3">
-<h3 class="anchored" data-anchor-id="paso-2-ejecutar-el-contenedor-de-jenkins">Paso 2: Ejecutar el contenedor de Jenkins</h3>
-<p>Ejecutamos un contenedor basado en la imagen de Jenkins. Es importante otorgar los privilegios necesarios y montar los volúmenes correctos para asegurar la persistencia de datos y el acceso al Docker socket.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker run <span class="at">--privileged</span> <span class="at">-d</span> <span class="dt">\</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8080:8080 <span class="at">-p</span> 50000:50000 <span class="dt">\</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="dt">\</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> jenkins_home:/var/jenkins_home <span class="dt">\</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    jenkins/jenkins:lts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/user-attachments/assets/4e93c0df-eef6-45f4-b7a6-7a25da14c7ac.png" class="img-fluid figure-img"></p>
-<figcaption>Captura de pantalla: Contenedor de Jenkins en ejecución</figcaption>
-</figure>
-</div>
-</section>
-<section id="paso-3-instalar-docker-dentro-del-contenedor-de-jenkins" class="level3">
-<h3 class="anchored" data-anchor-id="paso-3-instalar-docker-dentro-del-contenedor-de-jenkins">Paso 3: Instalar Docker dentro del contenedor de Jenkins</h3>
-<p>Para habilitar Docker dentro del contenedor de Jenkins, conectamos al CLI del contenedor como usuario root y descargamos Docker.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://get.docker.com/ <span class="op">&gt;</span> dockerinstall <span class="kw">&amp;&amp;</span> <span class="fu">chmod</span> 777 dockerinstall <span class="kw">&amp;&amp;</span> <span class="ex">./dockerinstall</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="paso-4-configurar-permisos-para-jenkins" class="level3">
-<h3 class="anchored" data-anchor-id="paso-4-configurar-permisos-para-jenkins">Paso 4: Configurar permisos para Jenkins</h3>
-<p>Añadimos al usuario <code>jenkins</code> al grupo <code>docker</code> para que pueda gestionar contenedores. Además, configuramos los permisos del socket Docker.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usermod</span> <span class="at">-aG</span> docker jenkins</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 666 /var/run/docker.sock</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/user-attachments/assets/166f7681-cbcd-4b32-84c5-073cc9c7e93e.png" class="img-fluid figure-img"></p>
-<figcaption>Captura de pantalla: Configuración de Docker en Jenkins</figcaption>
-</figure>
-</div>
-<hr>
-</section>
-</section>
-<section id="correcta-instalación-y-configuración-de-los-plugins-necesarios" class="level2">
-<h2 class="anchored" data-anchor-id="correcta-instalación-y-configuración-de-los-plugins-necesarios">Correcta instalación y configuración de los plugins necesarios</h2>
-<p>Para facilitar la integración y el desarrollo en Jenkins, instalamos los siguientes plugins esenciales:</p>
-<ol type="1">
-<li><strong>Maven Integration</strong></li>
-<li><strong>Git</strong></li>
-<li><strong>Docker</strong></li>
-<li><strong>SSH</strong></li>
-<li><strong>SonarQube Scanner</strong></li>
-</ol>
-<p><img src="https://github.com/user-attachments/assets/c6d7d666-4999-4183-a770-bfcb2b71a0d2.png" class="img-fluid" alt="Captura de pantalla: Plugins instalados"> <img src="https://github.com/user-attachments/assets/2af83b6c-1446-43b9-81b3-de932f45d430.png" class="img-fluid" alt="Captura de pantalla: Configuración de plugins"></p>
-<hr>
-</section>
-<section id="implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot" class="level2">
-<h2 class="anchored" data-anchor-id="implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot">Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot</h2>
-<section id="paso-1-crear-un-pipeline-en-jenkins" class="level3">
-<h3 class="anchored" data-anchor-id="paso-1-crear-un-pipeline-en-jenkins">Paso 1: Crear un pipeline en Jenkins</h3>
-<p>Una vez configuradas las herramientas y plugins necesarios, creamos un pipeline para nuestro proyecto Spring Boot. Este pipeline puede incluir pasos como compilación, pruebas y empaquetado de la aplicación.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/user-attachments/assets/72575a19-206c-43a4-bfdc-fe7940e8bb62.png" class="img-fluid figure-img"></p>
-<figcaption>Captura de pantalla: Pipeline Spring Boot</figcaption>
-</figure>
-</div>
-<hr>
-</section>
-</section>
-<section id="integración-exitosa-de-docker-dentro-del-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="integración-exitosa-de-docker-dentro-del-pipeline">Integración exitosa de Docker dentro del pipeline</h2>
-<section id="paso-1-ejecutar-la-pipeline" class="level3">
-<h3 class="anchored" data-anchor-id="paso-1-ejecutar-la-pipeline">Paso 1: Ejecutar la pipeline</h3>
-<p>Validamos que el pipeline se ejecuta correctamente con Docker integrado, permitiendo la construcción y despliegue de contenedores directamente desde Jenkins.</p>
-<p><img src="https://github.com/user-attachments/assets/375e7370-0890-432a-8c4f-1afcbcf6fa47.png" class="img-fluid" alt="Captura de pantalla: Ejecución del pipeline"> <img src="https://github.com/user-attachments/assets/e7c0d4a1-f6fb-4331-917d-1c73b0bcea3c.png" class="img-fluid" alt="Captura de pantalla: Resultado del pipeline"></p>
-<hr>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

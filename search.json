@@ -4,7 +4,7 @@
     "href": "amazon.html",
     "title": "AWS",
     "section": "",
-    "text": "TEST"
+    "text": "Prueba"
   },
   {
     "objectID": "indexgit.html",
@@ -89,6 +89,83 @@
     "title": "About",
     "section": "",
     "text": "Espacio reservado"
+  },
+  {
+    "objectID": "jenkins.html",
+    "href": "jenkins.html",
+    "title": "Jenkins",
+    "section": "",
+    "text": "Jenkins es una herramienta de automatización de código abierto que utilizo principalmente para Integración Continua (CI) y Entrega Continua/Despliegue Continuo (CD). Me ayuda a compilar, probar y desplegar software de manera eficiente."
+  },
+  {
+    "objectID": "jenkins.html#características-clave",
+    "href": "jenkins.html#características-clave",
+    "title": "Jenkins",
+    "section": "Características clave",
+    "text": "Características clave\n\nPlugins: Es altamente extensible con más de 1800 plugins, lo que me permite adaptarlo a mis necesidades.\nPipeline as Code: Puedo definir pipelines usando archivos como Jenkinsfile, lo que facilita la gestión del flujo de trabajo.\nCompatibilidad: Funciona con múltiples sistemas operativos y herramientas de desarrollo que uso habitualmente.\nAutomatización: Me permite programar y ejecutar automáticamente tareas repetitivas, ahorrándome tiempo."
+  },
+  {
+    "objectID": "jenkins.html#descargar-la-imagen-de-docker-de-jenkins",
+    "href": "jenkins.html#descargar-la-imagen-de-docker-de-jenkins",
+    "title": "Jenkins",
+    "section": "1. Descargar la Imagen de Docker de Jenkins",
+    "text": "1. Descargar la Imagen de Docker de Jenkins\nDescargamos la imagen oficial de Jenkins desde DockerHub:\nboris@Dev-Final:~/Jenkins$ sudo docker pull jenkins/jenkins:lts\nAhora ejecutamos lanzamos el contenedor importante revisar los volumenes y tambien el permiso de jenkins –privileged por que ejecutara un contenedor.\nboris@Dev-Final:~/Jenkins$ sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts"
+  },
+  {
+    "objectID": "jenkins.html#crear-cuenta-e-inicio-inicial",
+    "href": "jenkins.html#crear-cuenta-e-inicio-inicial",
+    "title": "Jenkins",
+    "section": "2. Crear Cuenta e Inicio Inicial",
+    "text": "2. Crear Cuenta e Inicio Inicial\nUna vez lanzado el contenedor de jenkins realizamos la instalación antes cogemos la contraseña inicial: boris@Dev-Final:~/Jenkins$ sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword importante ponerle un nombre a nuestro contenedor que luego nos asigna uno random.\n1. Accede a Jenkins a través de `http://localhost:8080`.\n2. Recupera la contraseña inicial de administrador:\n    sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword\n3. Sigue el asistente de configuración:\n    - Instala los complementos sugeridos o selecciona complementos específicos.\n    - Crea una cuenta de administrador.\n4. Completa la configuración y accede al panel de control de Jenkins."
+  },
+  {
+    "objectID": "jenkins.html#instalar-plugins-basicós-en-nuestro-jenkins",
+    "href": "jenkins.html#instalar-plugins-basicós-en-nuestro-jenkins",
+    "title": "Jenkins",
+    "section": "3. Instalar plugins basicós en nuestro jenkins:",
+    "text": "3. Instalar plugins basicós en nuestro jenkins:\nVamos a Jenkins y instalamos los plugins necesarios.\n\n- Integración con Maven\n- Git\n- Estibador\n- SSH\n- Escáner SonarQube\nPor otra parte tambien instalamos el JKD y maven y Docker ya que para nuestro srping-boot nos sera necesario."
+  },
+  {
+    "objectID": "jenkins.html#creamos-nuestro-pipeline",
+    "href": "jenkins.html#creamos-nuestro-pipeline",
+    "title": "Jenkins",
+    "section": "4. Creamos nuestro pipeline:",
+    "text": "4. Creamos nuestro pipeline:\nDefinimos nuestras tools docker git, maven y java importante revisar las versiones con las que se va atrabajar en este caso el springboot trabaja con JDK21 y Maven."
+  },
+  {
+    "objectID": "jenkins.html#docker-in-docker",
+    "href": "jenkins.html#docker-in-docker",
+    "title": "Jenkins",
+    "section": "Docker-in-Docker:",
+    "text": "Docker-in-Docker:\ndocker run -d –name jenkinsDinD –privileged -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts\nsudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts"
+  },
+  {
+    "objectID": "jenkins.html#configuración-exitosa-de-jenkins-en-docker",
+    "href": "jenkins.html#configuración-exitosa-de-jenkins-en-docker",
+    "title": "Jenkins",
+    "section": "Configuración exitosa de Jenkins en Docker",
+    "text": "Configuración exitosa de Jenkins en Docker\n\nPaso 1: Descargar la imagen de Jenkins\nPrimero, descargamos la imagen oficial de Jenkins desde Docker Hub. Esto garantiza que estamos utilizando la versión más reciente y estable de Jenkins.\nsudo docker pull jenkins/jenkins:lts\n\n\nPaso 2: Ejecutar el contenedor de Jenkins\nEjecutamos un contenedor basado en la imagen de Jenkins. Es importante otorgar los privilegios necesarios y montar los volúmenes correctos para asegurar la persistencia de datos y el acceso al Docker socket.\nsudo docker run --privileged -d \\\n    -p 8080:8080 -p 50000:50000 \\\n    -v /var/run/docker.sock:/var/run/docker.sock \\\n    -v jenkins_home:/var/jenkins_home \\\n    jenkins/jenkins:lts\n\n\n\nCaptura de pantalla: Contenedor de Jenkins en ejecución\n\n\n\n\nPaso 3: Instalar Docker dentro del contenedor de Jenkins\nPara habilitar Docker dentro del contenedor de Jenkins, conectamos al CLI del contenedor como usuario root y descargamos Docker.\ncurl https://get.docker.com/ &gt; dockerinstall && chmod 777 dockerinstall && ./dockerinstall\n\n\nPaso 4: Configurar permisos para Jenkins\nAñadimos al usuario jenkins al grupo docker para que pueda gestionar contenedores. Además, configuramos los permisos del socket Docker.\nusermod -aG docker jenkins\nchmod 666 /var/run/docker.sock\n\n\n\nCaptura de pantalla: Configuración de Docker en Jenkins"
+  },
+  {
+    "objectID": "jenkins.html#correcta-instalación-y-configuración-de-los-plugins-necesarios",
+    "href": "jenkins.html#correcta-instalación-y-configuración-de-los-plugins-necesarios",
+    "title": "Jenkins",
+    "section": "Correcta instalación y configuración de los plugins necesarios",
+    "text": "Correcta instalación y configuración de los plugins necesarios\nPara facilitar la integración y el desarrollo en Jenkins, instalamos los siguientes plugins esenciales:\n\nMaven Integration\nGit\nDocker\nSSH\nSonarQube Scanner"
+  },
+  {
+    "objectID": "jenkins.html#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot",
+    "href": "jenkins.html#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot",
+    "title": "Jenkins",
+    "section": "Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot",
+    "text": "Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot\n\nPaso 1: Crear un pipeline en Jenkins\nUna vez configuradas las herramientas y plugins necesarios, creamos un pipeline para nuestro proyecto Spring Boot. Este pipeline puede incluir pasos como compilación, pruebas y empaquetado de la aplicación.\n\n\n\nCaptura de pantalla: Pipeline Spring Boot"
+  },
+  {
+    "objectID": "jenkins.html#integración-exitosa-de-docker-dentro-del-pipeline",
+    "href": "jenkins.html#integración-exitosa-de-docker-dentro-del-pipeline",
+    "title": "Jenkins",
+    "section": "Integración exitosa de Docker dentro del pipeline",
+    "text": "Integración exitosa de Docker dentro del pipeline\n\nPaso 1: Ejecutar la pipeline\nValidamos que el pipeline se ejecuta correctamente con Docker integrado, permitiendo la construcción y despliegue de contenedores directamente desde Jenkins."
   },
   {
     "objectID": "docker.html",
@@ -180,83 +257,6 @@
     "title": "Docker",
     "section": "3. Comprobación de la Configuración",
     "text": "3. Comprobación de la Configuración\nPara revisar de que todo está configurado correctamente y los contenedores están funcionando, podemos utilizar los siguientes comandos: sudo docker ps para verificar que los contenedores están en ejecución, y sudo docker network inspect red-book-spring para verificar la conexión de los contenedores a la red. Con estos pasos, los contenedores de Spring Boot y React estarán ejecutándose correctamente y podrán comunicarse entre sí dentro de la red interna."
-  },
-  {
-    "objectID": "jenkins.html",
-    "href": "jenkins.html",
-    "title": "Jenkins",
-    "section": "",
-    "text": "Jenkins es una herramienta de automatización de código abierto que utilizo principalmente para Integración Continua (CI) y Entrega Continua/Despliegue Continuo (CD). Me ayuda a compilar, probar y desplegar software de manera eficiente."
-  },
-  {
-    "objectID": "jenkins.html#características-clave",
-    "href": "jenkins.html#características-clave",
-    "title": "Jenkins",
-    "section": "Características clave",
-    "text": "Características clave\n\nPlugins: Es altamente extensible con más de 1800 plugins, lo que me permite adaptarlo a mis necesidades.\nPipeline as Code: Puedo definir pipelines usando archivos como Jenkinsfile, lo que facilita la gestión del flujo de trabajo.\nCompatibilidad: Funciona con múltiples sistemas operativos y herramientas de desarrollo que uso habitualmente.\nAutomatización: Me permite programar y ejecutar automáticamente tareas repetitivas, ahorrándome tiempo."
-  },
-  {
-    "objectID": "jenkins.html#descargar-la-imagen-de-docker-de-jenkins",
-    "href": "jenkins.html#descargar-la-imagen-de-docker-de-jenkins",
-    "title": "Jenkins",
-    "section": "1. Descargar la Imagen de Docker de Jenkins",
-    "text": "1. Descargar la Imagen de Docker de Jenkins\nDescargamos la imagen oficial de Jenkins desde DockerHub:\nboris@Dev-Final:~/Jenkins$ sudo docker pull jenkins/jenkins:lts\nAhora ejecutamos lanzamos el contenedor importante revisar los volumenes y tambien el permiso de jenkins –privileged por que ejecutara un contenedor.\nboris@Dev-Final:~/Jenkins$ sudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts"
-  },
-  {
-    "objectID": "jenkins.html#crear-cuenta-e-inicio-inicial",
-    "href": "jenkins.html#crear-cuenta-e-inicio-inicial",
-    "title": "Jenkins",
-    "section": "2. Crear Cuenta e Inicio Inicial",
-    "text": "2. Crear Cuenta e Inicio Inicial\nUna vez lanzado el contenedor de jenkins realizamos la instalación antes cogemos la contraseña inicial: boris@Dev-Final:~/Jenkins$ sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword importante ponerle un nombre a nuestro contenedor que luego nos asigna uno random.\n1. Accede a Jenkins a través de `http://localhost:8080`.\n2. Recupera la contraseña inicial de administrador:\n    sudo docker exec -it sharp_stonebraker cat /var/jenkins_home/secrets/initialAdminPassword\n3. Sigue el asistente de configuración:\n    - Instala los complementos sugeridos o selecciona complementos específicos.\n    - Crea una cuenta de administrador.\n4. Completa la configuración y accede al panel de control de Jenkins."
-  },
-  {
-    "objectID": "jenkins.html#instalar-plugins-basicós-en-nuestro-jenkins",
-    "href": "jenkins.html#instalar-plugins-basicós-en-nuestro-jenkins",
-    "title": "Jenkins",
-    "section": "3. Instalar plugins basicós en nuestro jenkins:",
-    "text": "3. Instalar plugins basicós en nuestro jenkins:\nVamos a Jenkins y instalamos los plugins necesarios.\n\n- Integración con Maven\n- Git\n- Estibador\n- SSH\n- Escáner SonarQube\nPor otra parte tambien instalamos el JKD y maven y Docker ya que para nuestro srping-boot nos sera necesario."
-  },
-  {
-    "objectID": "jenkins.html#creamos-nuestro-pipeline",
-    "href": "jenkins.html#creamos-nuestro-pipeline",
-    "title": "Jenkins",
-    "section": "4. Creamos nuestro pipeline:",
-    "text": "4. Creamos nuestro pipeline:\nDefinimos nuestras tools docker git, maven y java importante revisar las versiones con las que se va atrabajar en este caso el springboot trabaja con JDK21 y Maven."
-  },
-  {
-    "objectID": "jenkins.html#docker-in-docker",
-    "href": "jenkins.html#docker-in-docker",
-    "title": "Jenkins",
-    "section": "Docker-in-Docker:",
-    "text": "Docker-in-Docker:\ndocker run -d –name jenkinsDinD –privileged -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts\nsudo docker run –privileged -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts"
-  },
-  {
-    "objectID": "jenkins.html#configuración-exitosa-de-jenkins-en-docker",
-    "href": "jenkins.html#configuración-exitosa-de-jenkins-en-docker",
-    "title": "Jenkins",
-    "section": "Configuración exitosa de Jenkins en Docker",
-    "text": "Configuración exitosa de Jenkins en Docker\n\nPaso 1: Descargar la imagen de Jenkins\nPrimero, descargamos la imagen oficial de Jenkins desde Docker Hub. Esto garantiza que estamos utilizando la versión más reciente y estable de Jenkins.\nsudo docker pull jenkins/jenkins:lts\n\n\nPaso 2: Ejecutar el contenedor de Jenkins\nEjecutamos un contenedor basado en la imagen de Jenkins. Es importante otorgar los privilegios necesarios y montar los volúmenes correctos para asegurar la persistencia de datos y el acceso al Docker socket.\nsudo docker run --privileged -d \\\n    -p 8080:8080 -p 50000:50000 \\\n    -v /var/run/docker.sock:/var/run/docker.sock \\\n    -v jenkins_home:/var/jenkins_home \\\n    jenkins/jenkins:lts\n\n\n\nCaptura de pantalla: Contenedor de Jenkins en ejecución\n\n\n\n\nPaso 3: Instalar Docker dentro del contenedor de Jenkins\nPara habilitar Docker dentro del contenedor de Jenkins, conectamos al CLI del contenedor como usuario root y descargamos Docker.\ncurl https://get.docker.com/ &gt; dockerinstall && chmod 777 dockerinstall && ./dockerinstall\n\n\nPaso 4: Configurar permisos para Jenkins\nAñadimos al usuario jenkins al grupo docker para que pueda gestionar contenedores. Además, configuramos los permisos del socket Docker.\nusermod -aG docker jenkins\nchmod 666 /var/run/docker.sock\n\n\n\nCaptura de pantalla: Configuración de Docker en Jenkins"
-  },
-  {
-    "objectID": "jenkins.html#correcta-instalación-y-configuración-de-los-plugins-necesarios",
-    "href": "jenkins.html#correcta-instalación-y-configuración-de-los-plugins-necesarios",
-    "title": "Jenkins",
-    "section": "Correcta instalación y configuración de los plugins necesarios",
-    "text": "Correcta instalación y configuración de los plugins necesarios\nPara facilitar la integración y el desarrollo en Jenkins, instalamos los siguientes plugins esenciales:\n\nMaven Integration\nGit\nDocker\nSSH\nSonarQube Scanner"
-  },
-  {
-    "objectID": "jenkins.html#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot",
-    "href": "jenkins.html#implementación-adecuada-del-pipeline-de-jenkins-para-el-proyecto-spring-boot",
-    "title": "Jenkins",
-    "section": "Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot",
-    "text": "Implementación adecuada del pipeline de Jenkins para el proyecto Spring Boot\n\nPaso 1: Crear un pipeline en Jenkins\nUna vez configuradas las herramientas y plugins necesarios, creamos un pipeline para nuestro proyecto Spring Boot. Este pipeline puede incluir pasos como compilación, pruebas y empaquetado de la aplicación.\n\n\n\nCaptura de pantalla: Pipeline Spring Boot"
-  },
-  {
-    "objectID": "jenkins.html#integración-exitosa-de-docker-dentro-del-pipeline",
-    "href": "jenkins.html#integración-exitosa-de-docker-dentro-del-pipeline",
-    "title": "Jenkins",
-    "section": "Integración exitosa de Docker dentro del pipeline",
-    "text": "Integración exitosa de Docker dentro del pipeline\n\nPaso 1: Ejecutar la pipeline\nValidamos que el pipeline se ejecuta correctamente con Docker integrado, permitiendo la construcción y despliegue de contenedores directamente desde Jenkins."
   },
   {
     "objectID": "index.html",
